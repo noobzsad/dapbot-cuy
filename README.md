@@ -15,7 +15,7 @@ Scan Kode Qr Di WhatsApp Web
 Selesai:)
 Selamat Bermain Bot:)
 
-Jika error silahkan download node_modules terlebih dahulu
+Jika error silahkan download node_modules terlebih dahulu link ada dibawah
 
 Cara pasang node_modules
 
@@ -27,6 +27,7 @@ Cara pasang node_modules
 6. node index.js
 
 Selesai:)
+
 ------------------------------------
 English Version
 
@@ -44,7 +45,7 @@ Scan Qr Code On WhatsApp Web
 Done:)
 Happy Playing Bot:)
 
-If there is an error, please download node_modules first
+If an error, please download node_modules first, the link is below
 
 How to install node_modules
 
@@ -58,4 +59,4 @@ How to install node_modules
 Done:)
 
 
-Link Node_Modules :
+Link Node_Modules : 
