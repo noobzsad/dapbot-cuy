@@ -45,12 +45,12 @@ const { removeBackgroundFromImageFile } = require('remove.bg')
 const { ind } = require('./dappa')
 
 //apikey
-const apivhtear = 'dappgzwabot'
+const apivhtear = 'beli sendiri'
 const ZeksApi = 'apivinz'
-const BarBarKey = 'beli njir'
+const BarBarKey = 'beli sendiri'
 const shizukaapi = 'onlyonedeveloper'
 const TobzKey = 'BotWeA'
-const LolHuman = 'dappuhybotwa' // fitur maker banyak yg menggunakan apikey ini
+const LolHuman = 'beli sendiri' // fitur maker banyak yg menggunakan apikey ini
 
 //kontak
 const vcard = 'BEGIN:VCARD\n'  // Jangan di ubah biar ga error
