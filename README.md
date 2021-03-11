@@ -1,3 +1,35 @@
+------------------------------------
+Versi Indonesia
+
+Cara Install Script Ini
+
+1. buka termux
+2. apt-get install bash
+3. apt-get install git
+3. git clone https://github.com/dappauhuy/dapbot-cuy
+4. cd dapbot-cuy
+5. bash install.sh
+6. node index.js
+
+Scan Kode Qr Di WhatsApp Web
+Selesai:)
+Selamat Bermain Bot:)
+
+Jika error silahkan download node_modules terlebih dahulu
+
+Cara pasang node_modules
+
+1. Extract file node_modules
+2. Buka termux
+3. termux-setup-storage
+4. cd dapbot-cuy
+5. cp -r /sdcard/download/node_modules $HOME
+6. node index.js
+
+Selesai:)
+------------------------------------
+English Version
+
 How To Install This Script
 
 1. open termux
@@ -11,3 +43,19 @@ How To Install This Script
 Scan Qr Code On WhatsApp Web
 Done:)
 Happy Playing Bot:)
+
+If there is an error, please download node_modules first
+
+How to install node_modules
+
+1. Extract the node_modules file
+2. Open termux
+3. termux-setup-storage
+4. cd dapbot-cuy
+5. cp -r / sdcard / download / node_modules $ HOME
+6. node index.js
+
+Done:)
+
+
+Link Node_Modules :
