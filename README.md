@@ -1,3 +1,4 @@
+![logo](https://user-images.githubusercontent.com/79284980/110831365-bebe1680-82cc-11eb-9d82-d6fe4d131222.jpg)
 ------------------------------------
 Versi Indonesia
 
@@ -59,4 +60,4 @@ How to install node_modules
 Done:)
 
 
-Link Node_Modules : 
+Link Node_Modules : https://www.mediafire.com/download/0d4clcwovbwhpjk
