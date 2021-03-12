@@ -33,7 +33,6 @@ Scan Qr Code On WhatsApp Web
 Done:)
 Happy Playing Bot:)
 ------------------------------------
-Donasi
-
-Dana : 085876330812
-Pulsa : 085876330812
+DONASI
+DANA : 085876330812
+PULSA : 085876330812
