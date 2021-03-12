@@ -36,5 +36,4 @@ Happy Playing Bot:)
 Donasi
 
 Dana = 085876330812
-
 Pulsa = 085876330812
