@@ -32,3 +32,8 @@ How To Install This Script
 Scan Qr Code On WhatsApp Web
 Done:)
 Happy Playing Bot:)
+------------------------------------
+Donasi
+
+Dana = 085876330812
+Pulsa = 085876330812
