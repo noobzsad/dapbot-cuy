@@ -4857,19 +4857,19 @@ break
                   }
                   
        if (budy.includes(`Hai`)) {
-                  reply(`iya kak, NoobzXBOT disini. ketikan $(prefix)help untuk menu NoobZBOT`)
+                  reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
         if (budy.includes(`hai`)) {
-                  reply(`iya kak, NoobzXBOT disini. ketikan $(prefix)help untuk menu NoobZBOT`)
+                  reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
         if (budy.includes(`Hallo`)) {
-                  reply(`iya kak, NoobzXBOT disini. ketikan $(prefix)help untuk menu NoobZBOT`)
+                  reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
        if (budy.includes(`hallo`)) {
-                  reply(`iya kak, NoobzXBOT disini. ketikan $(prefix)help untuk menu NoobZBOT`)
+                  reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
         if (budy.includes(`Sayang`)) {
