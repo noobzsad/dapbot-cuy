@@ -10,7 +10,7 @@ SELAMA 3 HARI
 50k = ganti owner, ganti nomer owner, ganti nama bot, ada apikey
 SELAMA 1 MINGGU
 
-minat? hubungi wa.me/6285876330812
+minat? hubungi wa.me/6285876154630
 pembayaran via Pulsa/Dana
 `
 }
