@@ -2865,6 +2865,7 @@ break
 					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: '>_<'})
 					await limitAdd(sender)
 					break
+				break
 				case 'loli':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3232,7 +3233,7 @@ break
 					break
 					case 'grouplist':
 					if (!isRegistered) return reply(ind.noregis())
-		if (isBanned) return reply(ind.baned())
+		            if (isBanned) return reply(ind.baned())
 					dappa.updatePresence(from, Presence.composing) 
 					teks = `\`\`\`Ini adalah list group NoobzXBOT~ :\n\n\`\`\``
 					no = 0
@@ -3472,17 +3473,17 @@ break
 					dappa.sendMessage(from, pok, image, { quoted: mek , caption: '*nyang🐈*'})
 					await limitAdd(sender) 
 					break 
+					
 		case 'fitnah':
 		if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
 		if (isLimit(sender)) return reply(ind.limitend(pusname))				
 		if (!isGroup) return reply(ind.groupo())                 
-				if (args.length < 1) return reply(`Gini kak : ${prefix}fitnah [@tag&pesan&balasanbot]\n\nContoh : ${prefix}fitnah @tagmember&hai&hai juga`)
+				if (args.length < 1) return reply(`Gini kak : ${prefix}fitnah [@tag|pesan|balasanbot]\n\nContoh : ${prefix}fitnah @tagmember|hai|hai juga`)
 				var gh = body.slice(8)
 				mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
-					var replace = gh.split("&")[0];
-					var target = gh.split("&")[1];
-					var bot = gh.split("&")[2];
+					var target = gh.split("|")[0];
+					var bot = gh.split("|")[1];
 					dappa.sendMessage(from, `${bot}`, text, {quoted: { key: { fromMe: false, participant: `${mentioned}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target}` }}})
 					break
 					case 'ntahlah':
@@ -4601,7 +4602,7 @@ break
                   dappa.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
                   dappa.sendMessage(from, 'Tuh kontak NoobzXGans <•_•> ,Jangan Lupa Save Ya (*>*)',MessageType.text, { quoted: mek} )
 		const DAPPAGANTENG = fs.readFileSync('./dapganz/DAPPAGANTENG');
-                dappa.sendMessage(from, DAPPAGANTENG, MessageType.image, {quoted: mek, caption: '*INI OWNER GW DAPPA GANTENG KAN😎*'})
+                dappa.sendMessage(from, DAPPAGANTENG, MessageType.image, {quoted: mek, caption: '*INI OWNER GW , DAN AKU BOT NYA😙*'})
                  break
 		break    
            	case 'setname':
@@ -4849,11 +4850,13 @@ break
 					break
 				default:
 			if (budy.includes(`assalamualaikum`)) {
-                  reply(`Waalaikumsalam`)
+                const bot = fs.readFileSync('./dapganz/waalaikumsallam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
 
 		if (budy.includes(`Assalamualaikum`)) {
-                  reply(`Waalaikumsalam`)
+                const bot = fs.readFileSync('./dapganz/waalaikumsallam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
        if (budy.includes(`Hai`)) {
@@ -4864,12 +4867,33 @@ break
                   reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
+        if (budy.includes(`Hai`)) {
+                const bot = fs.readFileSync('./dapganz/hallomember');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`hai`)) {
+                const bot = fs.readFileSync('./dapganz/hallomember');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+                  
         if (budy.includes(`Hallo`)) {
                   reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
                   }
                   
        if (budy.includes(`hallo`)) {
                   reply(`iya kak, NoobzXBOT disini. ketikan ${prefix}help untuk menu NoobZBOT`)
+                  }
+                  
+        if (budy.includes(`Hallo`)) {
+                const bot = fs.readFileSync('./dapganz/hallomember');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`hallo`)) {
+                const bot = fs.readFileSync('./dapganz/hallomember');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
         if (budy.includes(`Sayang`)) {
@@ -4881,6 +4905,10 @@ break
                   }
 
 		if (budy.includes(`Ngentod`)) {
+                  reply(`Jaga Omongan😡`)
+                  }
+                  
+        if (budy.includes(`ngentod`)) {
                   reply(`Jaga Omongan😡`)
                   }
 
@@ -4913,9 +4941,24 @@ break
                 dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
                   }
 
-		if (budy.includes(`Dappa`)) {
+		if (budy.includes(`noobz`)) {
                 const Dappa = fs.readFileSync('./dapganz/Dappa');
                 dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
+                  }
+                  
+        if (budy.includes(`noobzX`)) {
+                const Dappa = fs.readFileSync('./dapganz/Dappa');
+                dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
+                  }
+        
+        if (budy.includes(`iri`)) {
+                const bot = fs.readFileSync('./dapganz/iri');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Iri`)) {
+                const bot = fs.readFileSync('./dapganz/iri');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
 		if (budy.includes(`bot`)) {
