@@ -4849,12 +4849,22 @@ break
 					await limitAdd(sender)
 					break
 				default:
-			if (budy.includes(`assalamualaikum`)) {
+			if (budy.includes(`assalamu`)) {
                 const bot = fs.readFileSync('./dapganz/waalaikumsallam');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
 
-		if (budy.includes(`Assalamualaikum`)) {
+		if (budy.includes(`Assalamu`)) {
+                const bot = fs.readFileSync('./dapganz/waalaikumsallam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`Asalamu`)) {
+                const bot = fs.readFileSync('./dapganz/waalaikumsallam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`asalamu`)) {
                 const bot = fs.readFileSync('./dapganz/waalaikumsallam');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
@@ -4946,6 +4956,21 @@ break
                 dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
                   }
                   
+        if (budy.includes(`Noobz`)) {
+                const Dappa = fs.readFileSync('./dapganz/Dappa');
+                dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
+                  }
+                  
+         if (budy.includes(`Noob`)) {
+                const Dappa = fs.readFileSync('./dapganz/Dappa');
+                dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
+                  }
+                  
+         if (budy.includes(`noob`)) {
+                const Dappa = fs.readFileSync('./dapganz/Dappa');
+                dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
+                  }
+                  
         if (budy.includes(`noobzX`)) {
                 const Dappa = fs.readFileSync('./dapganz/Dappa');
                 dappa.sendMessage(from, Dappa, MessageType.sticker, {quoted: mek})
@@ -4958,6 +4983,41 @@ break
                   
         if (budy.includes(`Iri`)) {
                 const bot = fs.readFileSync('./dapganz/iri');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`tapi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Tapi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`gelay`)) {
+                const bot = fs.readFileSync('./dapganz/gelay');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Tapi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`tapi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`tpi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Tpi`)) {
+                const bot = fs.readFileSync('./dapganz/tapi');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
