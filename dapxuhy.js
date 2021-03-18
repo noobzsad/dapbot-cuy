@@ -4986,16 +4986,6 @@ break
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
-        if (budy.includes(`tapi`)) {
-                const bot = fs.readFileSync('./dapganz/tapi');
-                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-                  }
-                  
-        if (budy.includes(`Tapi`)) {
-                const bot = fs.readFileSync('./dapganz/tapi');
-                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
-                  }
-                  
         if (budy.includes(`gelay`)) {
                 const bot = fs.readFileSync('./dapganz/gelay');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
