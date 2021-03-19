@@ -5372,6 +5372,17 @@ break
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
+         if (budy.includes(`@6285876154630`)) {
+                  reply(`Jangan Tag Majikan gw Broh, Dia Lagi Sibuk 🗣`)
+                  }
+        if (budy.includes(`@6285876154630`)) {
+                  reply(`ngeDJ bae bos..`)
+                  }
+        if (budy.includes(`@6285876154630`)) {
+                const bot = fs.readFileSync('./dapganz/layar');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
 		if (budy.includes(`bot`)) {
                   reply(`Iya NoobzXBOT~ disini ketik ${prefix}help ya kak`)
                   }
