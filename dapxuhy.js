@@ -5327,6 +5327,11 @@ break
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
+           if (budy.includes(`P`)) {
+                const bot = fs.readFileSync('./dapganz/utamakansalam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
          if (budy.includes(`Sorry`)) {
                 const bot = fs.readFileSync('./dapganz/maaf');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
