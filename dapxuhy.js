@@ -586,23 +586,30 @@ dappa.on('group-participants-update', async (anu) => {
 				reply(ind.uangkau(pushname, sender, kantong))
 				break
 			case 'baka2':
-			if (isBanned) return reply(ind.baned())
+			if (!isRegistered) return reply(ind.noregis())
+		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 		buffer = await getBuffer(`http://api.lolhuman.xyz/api/random2/baka?apikey=${LolHuman}`)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
 			case 'bj':
-			if (isBanned) return reply(ind.baned())
+			if (!isRegistered) return reply(ind.noregis())
+		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 		buffer = await getBuffer(`http://api.lolhuman.xyz/api/random2/bj?apikey=${LolHuman}`)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
 			case 'wallpaperanime':
-			if (isBanned) return reply(ind.baned())
+			if (!isRegistered) return reply(ind.noregis())
+		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
                     buffer = await getBuffer(`http://api.lolhuman.xyz/api/random2/wallpaper?apikey=${LolHuman}`)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
 			case 'pictlolicon':
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.group)
 					reply(ind.wait())
 					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=lolikawai&apikey=${apivhtear}`, {method: 'get'})
@@ -614,9 +621,10 @@ dappa.on('group-participants-update', async (anu) => {
 					case 'pictwaifu':
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.group)
 					reply(ind.wait())
-					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=waifukawai&apikey=${apivhtear}`, {method: 'get'})
+					anu = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=waifu`, {method: 'get'})
 					var mi = JSON.parse(JSON.stringify(anu.result));
 					var ku =  mi[Math.floor(Math.random() * mi.length)];
 					nye = await getBuffer(ku)
@@ -626,20 +634,10 @@ dappa.on('group-participants-update', async (anu) => {
 		                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/random2/${command}?apikey=${LolHuman}`)
 		                    dappa.sendMessage(from, buffer, image, { quoted: mek })
 		                    break
-					case 'testwaifu':
-					if (isBanned) return reply(ind.baned())
-					if (!isRegistered) return reply(ind.noregis())
-					if (!isGroup) return reply(ind.group)
-					reply(ind.wait())
-					anu = await fetchJson(`https://xptnewapi.000webhostapp.com/newapixptn/Waifu.php?apikey=xptn1`, {method: 'get'})
-					var mi = JSON.parse(JSON.stringify(anu.result.result));
-					var ku =  mi[Math.floor(Math.random() * mi.length)];
-					nye = await getBuffer(ku)
-					dappa.sendMessage(from, nye, image, { caption: 'OHAYO DARLING!!', quoted: mek })
-					break
 					case 'pictneko':
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (!isGroup) return reply(ind.group)
 					reply(ind.wait())
 					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=nekoanimekawai&apikey=${apivhtear}`, {method: 'get'})
@@ -652,6 +650,7 @@ dappa.on('group-participants-update', async (anu) => {
                dappa.updatePresence(from, Presence.composing) 
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
                  data = await fetchJson(`https://mhankbarbars.herokuapp.com/api/jdtv?ch=${body.slice(10)}&apiKey=${BarBarKey}`)
 				if (data.error) return reply(data.error)
 				reply(data.result)
@@ -659,6 +658,7 @@ dappa.on('group-participants-update', async (anu) => {
 			case 'senku':
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
                                 if (isLimit(sender)) return reply(limits.limitend(pushname2))
 					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=senku&apikey=${apivhtear}`, {method: 'get'})
 					var sen = JSON.parse(JSON.stringify(anu.result));
@@ -670,6 +670,7 @@ dappa.on('group-participants-update', async (anu) => {
 			case 'kurumi2':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=kurumitokisakikawai&apikey=${apivhtear}`, {method: 'get'})
 					var kur = JSON.parse(JSON.stringify(anu.result));
 					var imi =  kur[Math.floor(Math.random() * kur.length)];
@@ -679,6 +680,8 @@ dappa.on('group-participants-update', async (anu) => {
 				case 'nakanomiku':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=Nakanomiku&apikey=${apivhtear}`, {method: 'get'})
 					var mi = JSON.parse(JSON.stringify(anu.result));
 					var ku =  mi[Math.floor(Math.random() * mi.length)];
@@ -688,6 +691,7 @@ dappa.on('group-participants-update', async (anu) => {
 			case 'wibu':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					reply(ind.wait())
 					anu = await fetchJson(`https://api.vhtear.com/randomwibu&apikey=${apivhtear}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
@@ -1497,7 +1501,7 @@ break
 				    try {
 					if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
-						res = await fetchJson(`https://api.lolis.life/random?nsfw=true`, {method: 'get'})
+						res = await fetchJson(`https://api.vhtear.com/pinterest?query=loli&apikey=${apivhtear}`, {method: 'get'})
 						buffer = await getBuffer(res.url)
 						dappa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Jangan jadiin bahan buat comli om'})
 					} catch (e) {
@@ -2845,15 +2849,14 @@ break
 		if (isBanned) return reply(ind.baned())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if (args.length < 1) return reply('Mau Nyari Foto Apa???')
-					pinte = body.slice(11)
-					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=${pinte}&apikey=${apivhtear}`, {method: 'get'})
-					reply(ind.wait())
-					var pin = JSON.parse(JSON.stringify(anu.result));
-					var trest =  pin[Math.floor(Math.random() * pin.length)];
-					pinehg = await getBuffer(trest)
-					dappa.sendMessage(from, pinehg, image, { caption: '*Pinterest*\n\n*Hasil Pencarian : '+pinte+'*', quoted: mek })
-					await limitAdd(sender) 
-					break 
+					if (!isRegistered) return reply(ind.noregis())
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} loli kawaii`)
+                    query = args.join(" ")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=${query}`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
 				case 'husbu':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3786,6 +3789,28 @@ break
 ║┣❥ *${prefix}dadu*
 ║┣❥ *${prefix}artinama*
 ║┣━━⊱  ❰ *ANIME MENU* ❱  ⊰━━━❤︎
+║┣❥ *${prefix}miku2*
+║┣❥ *${prefix}nino*
+║┣❥ *${prefix}ichika*
+║┣❥ *${prefix}ecchi*
+║┣❥ *${prefix}violet*
+║┣❥ *${prefix}sideoppai*
+║┣❥ *${prefix}neko4*
+║┣❥ *${prefix}baka2*
+║┣❥ *${prefix}senku2*
+║┣❥ *${prefix}animeboy*
+║┣❥ *${prefix}animegirl*
+║┣❥ *${prefix}itsuki*
+║┣❥ *${prefix}kurumi3*
+║┣❥ *${prefix}pinterest2
+║┣❥ *${prefix}igdlw*
+║┣❥ *${prefix}yotsuba*
+║┣❥ *${prefix}doujinimage*
+║┣❥ *${prefix}testhusbu*
+║┣❥ *${prefix}nekojav*
+║┣❥ *${prefix}erodoujin*
+║┣❥ *${prefix}jadwaltv*
+║┣❥ *${prefix}elaina*
 ║┣❥ *${prefix}animesaran*
 ║┣❥ *${prefix}animesaran2*
 ║┣❥ *${prefix}husbu2*
@@ -3884,6 +3909,11 @@ break
 ║┣❥ *${prefix}afk*
 ║┣❥ *${prefix}unafk*
 ║┣❥ *${prefix}asupan*
+║┣❥ *${prefix} cecan*
+║┣❥ *${prefix}cogan*
+║┣❥ *${prefix}boboboi*
+║┣❥ *${prefix}exo*
+║┣❥ *${prefix}bts*
 ║┣━━⊱  ❰ *LIMIT MENU* ❱  ⊰━━━❤︎
 ║┣❥ *${prefix}limit*
 ║┣❥ *${prefix}buylimit*
@@ -4351,6 +4381,8 @@ break
 					
 				case 'cogan':
 		if (!isRegistered) return reply(ind.noregis())
+		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
                     query = args.join("cowoganteng")
                     ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=cowoganteng`)
                     ini_url = ini_url.result
@@ -4359,12 +4391,255 @@ break
                     break
                     case 'cecan':
 		if (!isRegistered) return reply(ind.noregis())
+		if (isBanned) return reply(ind.baned())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
                     query = args.join("cewecantik")
                     ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=cewecantik`)
                     ini_url = ini_url.result
                     buffer = await getBuffer(ini_url)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
+                    case 'boboboi':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("boboboi")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=boboboi`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'miku2':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("nakano miku")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=nakano miku`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'nino':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("nakano nino")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=nino nakano`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'ichika':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("nakano ichika")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=ichika nakano`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'violet':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("violet evergarden")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=violet evergarden`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+		case 'ecchi':
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/ecchi?apikey=${LolHuman}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: 'Nih Bos'  })
+                    break
+		case 'sideoppai':
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/random/nsfw/sideoppai?apikey=${LolHuman}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: 'Nih Bos'  })
+                    break
+		case 'bts':
+		if (!isRegistered) return reply(ind.noregis())
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/random/bts?apikey=${LolHuman}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: 'Nih Bos'  })
+                    break
+		case 'exo':
+		if (!isRegistered) return reply(ind.noregis())
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/random/exo?apikey=${LolHuman}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: 'Nih Bos' })
+                    break
+		case 'pasangan':
+			if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(limitend(pushname2))
+				pa = `${body.slice(10)}`
+				sa = pa.split("/")[0];
+				ngan = pa.split("/")[1];
+				anu = await fetchJson(`https://api.vhtear.com/primbonjodoh?nama=${sa}&pasangan=${ngan}&apikey=${apivhtear}`, {method: 'get'})
+				dappa.sendMessage(from, `${anu.result.hasil}`, {quoted: mek})
+			await limitAdd(sender) 
+			break 
+			case 'cersex':
+		if (!isRegistered) return reply(ind.noregis())
+                if (isLimit(sender)) return reply(limitend(pushname2))
+                   anu = await fetchJson(`https://api.vhtear.com/cerita_sex&apikey=${apivhtear}`, {method: 'get'})
+                   if (anu.error) return reply(anu.error)
+                   sex = await getBuffer(anu.result.image)
+                   reply(ind.wait())
+                   cerita = `• *Judul:* ${anu.result.judul}\n\n${anu.result.cerita}`
+                   dappa.sendMessage(from, sex, image, {quoted: mek, caption: cerita})
+                   await limitAdd(sender) 
+                   break 
+                   case 'baka2':
+		if (!isRegistered) return reply(ind.noregis())
+		buffer = await getBuffer(`http://api.lolhuman.xyz/api/random2/baka?apikey=${LolHuman}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+			case 'neko4':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("neko ")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=neko`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'kurumi3':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("kurumi")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=kurumi`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'animegirl':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("nakano itsuki")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=nakano itsuki`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'animegirl':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("anime girl")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=anime girl`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'animeboy':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("anime boy")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=anime boy`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'senku2':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("senku dr stone")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=senku dr stone`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'testwaifu':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("waifu")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=waifu`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'testhusbu':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("husbu")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=husbu`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'doujinimage':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("ero doujin")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=ero doujin`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'yotsuba':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("nakano yotsuba")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=nakano yotsuba`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+			case 'igdlw':
+		if (!isRegistered) return reply(ind.noregis())
+                    ini_url = args[0]
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/instagram?apikey=${LolHuman}&url=${ini_url}`)
+                    ini_url = ini_url.result
+                    ini_type = image
+                    if (ini_url.includes(".mp4")) ini_type = video
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, ini_type, { quoted: mek })
+                    break
+		case 'pinterest2':
+		if (!isRegistered) return reply(ind.noregis())
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} loli kawaii`)
+                    query = args.join(" ")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=${query}`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+			case 'ramalhp':
+				if (!isRegistered) return reply(ind.noregis())
+					if (args.length < 1) return reply('teks nya mana om')
+					kj = body.slice(12)
+					anu = await fetchJson(`https://api.vhtear.com/nomerhoki?no=${kj}&apikey=${apivhtear}`)
+					reply(anu.result.hasil)
+					break
+			case 'nekojav':
+				    try {
+					if (!isRegistered) return reply(ind.noregis())
+						res = await fetchJson(`https://api.vhtear.com/nekohentai&apikey=${apivhtear}`, {method: 'get'})
+						buffer = await getBuffer(res.result)
+						dappa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Jangan jadiin bahan buat comli om'})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply('❌ *ERROR* ❌')
+					}
+					break
+			case 'elaina':
+					if (!isRegistered) return reply(ind.noregis())
+                                if (isLimit(sender)) return reply(limits.limitend(pushname2))
+					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=elainamajonotabitabi&apikey=${apivhtear}`, {method: 'get'})
+					var ela = JSON.parse(JSON.stringify(anu.result));
+					var ina =  ela[Math.floor(Math.random() * ela.length)];
+					nye = await getBuffer(ina)
+					dappa.sendMessage(from, nye, image, { caption: 'elaina!!', quoted: mek })
+					await limitAdd(sender)
+					break
+			       case 'jadwaltv':
+		if (!isRegistered) return reply(ind.noregis())
+                    channel = args[0]
+                    tvnow = await fetchJson(`http://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${LolHuman}`)
+                    tvnow = tvnow.result
+                    txt = `Jadwal TV ${channel.toUpperCase()}\n`
+                    for (var x in tvnow) {
+                        txt += `${x} - ${tvnow[x]}\n`
+                    }
+                    reply(txt)
+                    break
+			case 'erodoujin':
+		if (!isRegistered) return reply(ind.noregis())
+                    henid = args[0]
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${LolHuman}`)
+                    get_result = get_result.result
+                    buffer = await getBuffer(get_result)
+                    dappa.sendMessage(from, buffer, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${henid}.pdf` })
+                    break
+                    case 'pictlolicon':
+					if (!isRegistered) return reply(ind.noregis())
+					if (!isGroup) return reply(ind.group)
+					reply(ind.wait())
+					anu = await fetchJson(`https://api.vhtear.com/pinterest?query=lolikawai&apikey=${apivhtear}`, {method: 'get'})
+					var mi = JSON.parse(JSON.stringify(anu.result));
+					var ku =  mi[Math.floor(Math.random() * mi.length)];
+					nye = await getBuffer(ku)
+					dappa.sendMessage(from, nye, image, { caption: 'HALLO ONII CHAN!!', quoted: mek })
+					break
+			
                     
 				case 'stickergif':
       case 'stikergif':
