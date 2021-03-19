@@ -2844,7 +2844,7 @@ break
 		if (isBanned) return reply(ind.baned())
 					dappa.sendMessage(from, sewabot(prefix) , text, { quoted: mek })
 					break 
-				case 'pinterest': 
+				//case 'pinterest': 
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -2857,6 +2857,20 @@ break
                     buffer = await getBuffer(ini_url)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
+                  case 'pinterest':
+        // Fix Bug By OzanDesu				
+        if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        if (isBanned) return reply('Maaf kamu sudah terbenned!')
+        itsmeiky.updatePresence(from, Presence.composing)
+        data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, { method: 'get' })
+        reply(ind.wait())
+        n = JSON.parse(JSON.stringify(data));
+        ini_url = n[Math.floor(Math.random() * n.length)];
+        buffer = await getBuffer(ini_url)
+        dappa.sendMessage(from, buffer, image, { quoted: iky, caption: `*PINTEREST*` })
+        await limitAdd(sender)
+        break
 				case 'husbu':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -3802,7 +3816,7 @@ break
 ║┣❥ *${prefix}animegirl*
 ║┣❥ *${prefix}itsuki*
 ║┣❥ *${prefix}kurumi3*
-║┣❥ *${prefix}pinterest2
+║┣❥ *${prefix}pinterest2* [untuk tempat]
 ║┣❥ *${prefix}igdlw*
 ║┣❥ *${prefix}yotsuba*
 ║┣❥ *${prefix}doujinimage*
@@ -5305,6 +5319,51 @@ break
                   
         if (budy.includes(`Tpi`)) {
                 const bot = fs.readFileSync('./dapganz/tapi');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+          if (budy.includes(`P `)) {
+                const bot = fs.readFileSync('./dapganz/utamakansalam');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+         if (budy.includes(`Sorry`)) {
+                const bot = fs.readFileSync('./dapganz/maaf');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`sorry`)) {
+                const bot = fs.readFileSync('./dapganz/maaf');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`maaf`)) {
+                const bot = fs.readFileSync('./dapganz/maaf');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Maaf`)) {
+                const bot = fs.readFileSync('./dapganz/maaf');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`kontol`)) {
+                const bot = fs.readFileSync('./dapganz/tod');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`Kontol`)) {
+                const bot = fs.readFileSync('./dapganz/tod');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+       if (budy.includes(`tod`)) {
+                const bot = fs.readFileSync('./dapganz/tod');
+                dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
+                  }
+                  
+        if (budy.includes(`Tod`)) {
+                const bot = fs.readFileSync('./dapganz/tod');
                 dappa.sendMessage(from, bot, MessageType.audio, {quoted: mek, mimetype: 'audio/mp4', ptt:true})
                   }
                   
