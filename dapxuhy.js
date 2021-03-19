@@ -4372,7 +4372,7 @@ break
 							.on('end', function () {
 								console.log('Finish')
 								buffer = fs.readFileSync(ran)
-								client.sendMessage(from, buffer, sticker, {quoted: mek})
+								dappa.sendMessage(from, buffer, sticker, {quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
@@ -4398,7 +4398,7 @@ break
 							.on('end', function () {
 								console.log('Finish')
 								buffer = fs.readFileSync(ran)
-								client.sendMessage(from, buffer, sticker, {quoted: mek})
+								dappa.sendMessage(from, buffer, sticker, {quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
