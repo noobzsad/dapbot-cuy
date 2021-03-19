@@ -4348,6 +4348,24 @@ break
 					fs.writeFileSync('./dapp/user/banned.json', JSON.stringify(ban))
 					reply(`Nomor wa.me/${bnnd} telah di unban!`)
 					break
+					
+				case 'cogan':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("cowoganteng")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=cowoganteng`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    case 'cecan':
+		if (!isRegistered) return reply(ind.noregis())
+                    query = args.join("cewecantik")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${LolHuman}&query=cewecantik`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                    
 				case 'stickergif':
       case 'stikergif':
       case 'sgif':
@@ -4729,7 +4747,7 @@ break
                 			 case 'simi':
 					if (args.length < 1) return reply('Textnya mana um?')
 					teks = body.slice(5)
-					anu = await simih(teks) //fetchJson(`https://mhankbarbars.herokuapp.com/api/samisami?text=${teks}`, {method: 'get'})
+					anu = await simih(teks) //fetchJson(`http://api.lolhuman.xyz/api/simi?apikey=Oz-san&text=${budy}`, {method: 'get'})
 					//if (anu.error) return reply('Simi ga tau yank')
 					reply(anu)
 					break
