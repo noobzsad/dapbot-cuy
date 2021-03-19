@@ -4351,13 +4351,13 @@ break
 				case 'stiker': 
 				case 'sticker':
 				case 's':
-				    if (!isRegistered) return reply(ind.noregis())
-		if (isBanned) return reply(ind.baned())
+				     if (!isRegistered) return reply( ind.noregis())
 				    if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    await limitAdd(sender)
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					await limitAdd(sender)
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						const media = await dappa.downloadAndSaveMediaMessage(encmedia)
+						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
 							.input(media)
@@ -4372,7 +4372,7 @@ break
 							.on('end', function () {
 								console.log('Finish')
 								buffer = fs.readFileSync(ran)
-								dappa.sendMessage(from, buffer, sticker, {quoted: mek})
+								client.sendMessage(from, buffer, sticker, {quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
@@ -4381,7 +4381,7 @@ break
 							.save(ran)
 					} else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
-						const media = await dappa.downloadAndSaveMediaMessage(encmedia)
+						const media = await client.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
 						reply(ind.wait())
 						await ffmpeg(`./${media}`)
@@ -4398,7 +4398,7 @@ break
 							.on('end', function () {
 								console.log('Finish')
 								buffer = fs.readFileSync(ran)
-								dappa.sendMessage(from, buffer, sticker, {quoted: mek})
+								client.sendMessage(from, buffer, sticker, {quoted: mek})
 								fs.unlinkSync(media)
 								fs.unlinkSync(ran)
 							})
@@ -4406,7 +4406,7 @@ break
 							.toFormat('webp')
 							.save(ran)
 							} else {
-						reply(`Kirim gambar/video/gif dengan caption \n${prefix}sticker (durasi sticker video 1-9 detik)`)
+						reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
 					}
 					break
 				case 'tts':
