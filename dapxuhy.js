@@ -4721,171 +4721,29 @@ break
         }
         break
         //menu by NoobzX
-           case 'wanted':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await dappa.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(7)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/wanted/?urlgbr=${anu.display_url}&text1=Dicari&text2=${tels}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'gtav':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(7)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/gtavposter/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'facebookpage':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(14)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/facebookprof/?urlgbr=${anu.display_url}&text=${tels}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'costumwp':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(14)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/customwp/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'pantaimalam':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(14)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/nightbeach/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'pencil':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(14)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/pencil/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'bakar':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(7)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/burneffect/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-	case 'crossgun':
-	if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-	var imgbb = require('imgbb-uploader')
-	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
-	  reply(ind.wait())
-	  owgi = await client.downloadAndSaveMediaMessage(ted)
-	  tels = body.slice(7)
-	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
-	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/crossgun/?urlgbr=${anu.display_url}`)
-	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
-	} else {
-	  reply('Jangan tambah kan apapun pada command')
-	}
-	break
-		case 'hartatata3':
-				 				
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (args.length < 1) return reply(ind.wrongf())
-				bh = body.slice(12)
-				reply(ind.wait())
-				buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${bh}&apikey=c1d162b46e634f389efa1ac715f03d03`)
-				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
-				await limitAdd(sender)
-				break
-		case 'text2gif':
-				 				
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (args.length < 1) return reply(ind.wrongf())
-				bh = body.slice(10)
-				reply(ind.wait())
-				buffer = await getBuffer(`https://api.vhtear.com/textxgif?text=${bh}&apikey=c1d162b46e634f389efa1ac715f03d03`)
-				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
-				await limitAdd(sender)
-				break
-		case 'attp':
-				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Wajahku Ganteng*`)
-				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
-				dappa.sendMessage(from, attp2, sticker, {quoted: mek})
-				break
+        case 'ktpmaker':
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
+                    get_args = args.join(" ").split("|")
+                    nik = get_args[0]
+                    prov = get_args[1]
+                    kabu = get_args[2]
+                    name = get_args[3]
+                    ttl = get_args[4]
+                    jk = get_args[5]
+                    jl = get_args[6]
+                    rtrw = get_args[7]
+                    lurah = get_args[8]
+                    camat = get_args[9]
+                    agama = get_args[10]
+                    nikah = get_args[11]
+                    kerja = get_args[12]
+                    warga = get_args[13]
+                    until = get_args[14]
+                    img = get_args[15]
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/ktpmaker?apikey=${apikey}&nik=${nik}&prov=${prov}&kabu=${kabu}&name=${name}&ttl=${ttl}&jk=${jk}&jl=${jl}&rtrw=${rtrw}&lurah=${lurah}&camat=${camat}&agama=${agama}&nikah=${nikah}&kerja=${kerja}&warga=${warga}&until=${until}&img=${img}`)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+           
 		case 'apkpure':
 				// Fix Case By buffer/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
