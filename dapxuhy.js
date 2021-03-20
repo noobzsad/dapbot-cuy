@@ -4721,43 +4721,174 @@ break
         }
         break
         //menu by NoobzX
-        case 'hartatahta':
-				if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (args.length < 1) return reply('Teksnya om')
-				reply(mess.wait)
-					anu = `https://api.vhtear.com/hartatahta?text=${args.join(' ')}&apikey=${VthearApi}`
-					voss = await fetch(anu)
-					ftype = require('file-type')
-					vuss = await ftype.fromStream(voss.body)
-					if (vuss !== undefined) {
-						costum(await getBuffer(anu), image, NoobzXganss, ` ~ Harta Tahta ${args[0]}`)
-					} else {
-						reply(mess.error.bug)
-					}
-					await limitAdd(sender) 
-				break 
-		case 'tahta': 				
+        case 'moddroid':
+				// Fix Case By buffer/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (args.length < 1) return reply(ind.wrongf())
-				bh = body.slice(9)
-				reply(ind.wait())
-				bh = await getBuffer(`https://api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
-				dappa.sendMessage(from, bh, image, { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "url": "https://mmg.whatsapp.net/d/f/At0x7ZdIvuicfjlf9oWS6A3AR9XPh0P-hZIVPLsI70nM.enc", "mimetype": "image/jpeg", "caption": "SPACE~", "fileSha256": "+Ia+Dwib70Y1CWRMAP9QLJKjIJt54fKycOfB2OEZbTU=", "fileLength": "28777", "height": 1080, "width": 1079, "mediaKey": "vXmRR7ZUeDWjXy5iQk17TrowBzuwRya0errAFnXxbGc=", "fileEncSha256": "sR9D2RS5JSifw49HeBADguI23fWDz1aZu4faWG/CyRY=", "directPath": "/v/t62.7118-24/21427642_840952686474581_572788076332761430_n.enc?oh=3f57c1ba2fcab95f2c0bb475d72720ba&oe=602F3D69", "mediaKeyTimestamp": "1610993486", "jpegThumbnail": fs.readFileSync('lib/logo.jpeg')} } }, {caption: 'Nih kak udah jadi..', quoted: mek})
-				
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
+				hepi = data.result[0] 
+				teks = `*Nama*: ${data.result[0].title}\n*Publisher*: ${hepi.publisher}\n*Mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*Latest version*: ${hepi.latest_version}\n*Genre*: ${hepi.genre}\n*Link:* ${hepi.link}\n*Download*: ${hepi.download}`
+				buffer = await getBuffer(hepi.image)
+				dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
 				await limitAdd(sender)
 				break
-			case 'tahta2':
-if (!isRegistered) return reply(ind.noregis())
-if (isLimit(sender)) return reply(ind.limitend(pusname))
-if (args.length < 1) return reply(`Contoh : ${prefix}tahta sunda`)
-har = body.slice(12)
-buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${har}&apikey=${apivhtear}` )
-reply('nyenyenye :v')
-dappa.sendMessage(from, buffer, image, {quoted: mek})
-await limitAdd(sender)
-break
+		case 'happymod':
+				// Fix Case By buffer/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
+				hupo = data.result[0] 
+				teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
+				buffer = await getBuffer(hupo.image)
+				dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
+				await limitAdd(sender)
+				break
+		case 'apkpure':
+				// Fix Case By buffer/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				data = await fetchJson(`https://api.zeks.xyz/api/apkpure?q=${body.slice(9)}&apikey=apivinz`, {method: 'get'})
+				teks = '=================\n'
+				for (let i of data.result) {
+					teks += `*Nama APK* : ${i.title}\n*Link* : ${i.url}\n*Rating* : ${i.rating}\n=================\n`
+					}
+				reply(teks.trim())
+				await limitAdd(sender)
+				break
+		case 'jadwalbola': 			
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				data = await fetchJson(`https://api.vhtear.com/jadwalbola&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
+				teks = '=================\n'
+				for (let i of data.result.data) {
+					teks += `❏ *Kick Off* : ${i.kickoff}\n❏ *Pertandingan* : ${i.pertandingan}\n❏ *Stasiuntv* : ${i.stasiuntv}\n\n=================\n\n`
+					}
+				reply(teks.trim())
+				await limitAdd(sender)
+				break
+		case 'coronainfo': 
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				data = await fetchJson(`https://api.vhtear.com/corona&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
+				teks = '=================\n'
+				for (let i of data.result) {
+					teks += `*Updated* : ${i.updated}\n*Country* : ${i.country}\n*CountryInfo* : \n*ID* : ${i.countryInfo._id}\n*iso2* : ${i.countryInfo.iso2}\n*iso3* : ${i.countryInfo.iso3}\n*lat* : ${i.countryInfo.lat}\n*long* : ${i.countryInfo.long}\n*cases* : ${i.cases}\n*todayCases* : ${i.todayCases}\n*deaths* : ${i.deaths}\n*todayDeaths* : ${i.todayDeaths}\n*recovered* : ${i.recovered}\n*todayRecovered* : ${i.todayRecovered}\n*active* : ${i.active}\n*critical* : ${i.critical}\n*casesPerOneMillion* : ${i.casesPerOneMillion}\n*deathsPerOneMillion* : ${i.deathsPerOneMillion}\n*tests* : ${i.tests}\n*testsPerOneMillion* : ${i.testsPerOneMillion}\n*population* : ${i.population}\n*continent* : ${i.continent}\n*oneCasePerPeople* : ${i.oneCasePerPeople}\n*oneDeathPerPeople* : ${i.oneDeathPerPeople}\n*oneTestPerPeople* : ${i.oneTestPerPeople}\n*activePerOneMillion* : ${i.activePerOneMillion}\n*recoveredPerOneMillion* : ${i.recoveredPerOneMillion}\n*criticalPerOneMillion* : ${i.criticalPerOneMillion}\n=================\n`
+					}
+				reply(teks.trim())
+				await limitAdd(sender)
+				break
+		case 'bitly':
+				// Fix Case By buffer/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				client.updatePresence(from, Presence.composing) 
+				data = await fetchJson(`https://tobz-api.herokuapp.com/api/bitly?url=${args[0]}&apikey=BotWeA`)
+				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
+				reply(hasil)
+				await limitAdd(sender)
+				break
+		case 'cuttly':
+				 				
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				client.updatePresence(from, Presence.composing) 
+				data = await fetchJson(`https://hujanapi.herokuapp.com/api/cuttly?url=${args[0]}&apikey=trial2k21`)
+				hasil = `link : ${args[0]}\n\nOutput : ${data.result.Short}`
+				reply(hasil)
+				await limitAdd(sender)
+				break
+				case 'pornhub':
+                	
+					var gh = body.slice(9)
+					var porn = gh.split("/")[0];
+					var hub = gh.split("/")[1];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}pornhub buffer/Hub`)
+					reply(ind.wait())
+					alan = await getBuffer(`https://vinz.zeks.xyz/api/pornhub?text1=${porn}&text2=${hub}`)
+					dappa.sendMessage(from, alan, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+				case 'googletext':
+                	
+					var gh = body.slice(12)
+					var buffer = gh.split("/")[0];
+					var ganz = gh.split("/")[1];
+					var abiez = gh.split("/")[2];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}googletext buffer/gans/abiezz`)
+					reply(ind.wait())
+					buffer = await getBuffer(`https://videfikri.com/api/textmaker/gsuggest/?text1=${buffer}&text2=${ganz}&text3=${abiez}`)
+					dappa.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+				case 'phcomment':
+                	
+					var gh = body.slice(11)
+					var buffer = gh.split("/")[0];
+					var cmnt = gh.split("/")[1];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}phcomment buffer/yahahaha`)
+					reply(ind.wait())
+					buffer = await getBuffer(`https://api.zeks.xyz/api/phub?apikey=apivinz&img=https://1.bp.blogspot.com/-x8KhcOBG-yw/XiU4pi1yWVI/AAAAAAAADBA/gK8tsLyc1lQ808A348IKzDCjf6fUBKONwCLcBGAsYHQ/s1600/cara%2Bbuat%2Bfoto%2Bprofil%2Bdi%2Bwhatsapp%2Bmenjadi%2Bunik.jpg&username=${buffer}&msg=${cmnt}`)
+					dappa.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+				case 'wallgravity':
+                	
+					var gh = body.slice(13)
+					var t1 = gh.split("/")[0];
+					var t2 = gh.split("/")[1];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}wallgravity buffer/Pw`)
+					reply(ind.wait())
+					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/wallgravity?apikey=RamlanID&text1=${t1}&text2=${t2}`)
+					dappa.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+				case 'space':
+                	
+					var gh = body.slice(7)
+					var t1 = gh.split("/")[0];
+					var t2 = gh.split("/")[1];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}space buffer/Pw`)
+					reply(ind.wait())
+					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/space?apikey=RamlanID&text1=${t1}&text2=${t2}`)
+					dappa.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+				case 'marvelstudio':
+                	
+					var gh = body.slice(14)
+					var t1 = gh.split("/")[0];
+					var t2 = gh.split("/")[1];
+					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}marvelstudio buffer/Pw`)
+					reply(ind.wait())
+					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/marvelstudio?apikey=RamlanID&text1=${t1}&text2=${t2}`)
+					dappa.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+				break
+		case 'tinyurl':
+               client.updatePresence(from, Presence.composing) 
+                data = await fetchJson(`https://tobz-api.herokuapp.com/api/tinyurl?url=${args[0]}&apikey=BotWeA`)
+                hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
+                reply(hasil)
+                await limitAdd(sender)
+                break
+		case 'shrtco':
+				 				
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				client.updatePresence(from, Presence.composing) 
+				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=WEMPYGANSS`)
+				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
+				reply(hasil)
+				await limitAdd(sender)
+				break
                 case 'darkneon':
                 case 'candlemug':
                 case 'lovemsg':
@@ -4775,7 +4906,7 @@ break
                 if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-                    if (args.length == 0) return reply(`Usage: ${prefix + command} text\nExample: ${prefix + command} yogi`)
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} text\nExample: ${prefix + command} buffer`)
                     txt = args.join(" ")
                     reply('[❕] Loading')
                     buffer = await getBuffer(`https://videfikri.com/api/textmaker/${command}/?text=${txt}`)
@@ -4791,61 +4922,6 @@ break
                     buffer = await getBuffer(`https://api.zeks.xyz/api/${command}?text=${txt}&apikey=apivinz`)
                     dappa.sendMessage(from, buffer, image, {caption: 'Jangan Cuma make doang Follow instagram.com/noobz.sad.offc_', quoted: mek})
          break
-				
-				//fadhli 
-				case 'pinterest':
-					if (!isRegistered) return reply(ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					client.updatePresence(from, Presence.composing) 
-					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, {method: 'get'})
-					reply(ind.wait())
-					n = JSON.parse(JSON.stringify(data));
-					nimek =  n[Math.floor(Math.random() * n.length)];
-					pok = await getBuffer(nimek)
-					dappa.sendMessage(from, pok, image, { quoted: mek, caption: `*𝐏𝐈𝐍𝐓𝐄𝐑𝐄𝐒𝐓*`})
-					await limitAdd(sender)
-					break 
-        case 'igstalk':
-                 if (!isRegistered) return reply( ind.noregis())
-				 if (isLimit(sender)) return reply(ind.limitend(pusname))
-					hmm = await fetchJson(`https://api.zeks.xyz/api/igstalk?username=${body.slice(9)}&apikey=apivinz`)
-					buffer = await getBuffer(hmm.profile_pic)
-					hasil = `Fullname : ${hmm.fullname}\nFollowers : ${hmm.follower}\nFollowing : ${hmm.following}\nPrivate : ${hmm.is_private}\nVerified : ${hmm.is_verified}\nBio : ${hmm.bio}`
-					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
-					await limitAdd(sender)
-					break
-        case 'spotify':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    url = args[0]
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/spotify?apikey=RamlanID&url=${url}`)
-                    get_result = get_result.result
-                    txt = `Title : ${get_result.title}\n`
-                    txt += `Artists : ${get_result.artists}\n`
-                    txt += `Duration : ${get_result.duration}\n`
-                    txt += `Popularity : ${get_result.popularity}\n`
-                    txt += `Preview : ${get_result.preview_url}\n`
-                    thumbnail = await getBuffer(get_result.thumbnail)
-                    dappa.sendMessage(from, thumbnail, image, { quoted: mek, caption: txt })
-                    get_audio = await getBuffer(get_result.link[3].link)
-                    dappa.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: mek })
-                    break
-                case 'spotifysearch':
-                if (!isRegistered) return reply(ind.noregis())
-                if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/spotifysearch?apikey=RamlanID&query=${query}`)
-                    get_result = get_result.result
-                    txt = ""
-                    for (var x in get_result) {
-                        txt += `Title : ${get_result[x].title}\n`
-                        txt += `Artists : ${get_result[x].artists}\n`
-                        txt += `Duration : ${get_result[x].duration}\n`
-                        txt += `Link : ${get_result[x].link}\n`
-                        txt += `Preview : ${get_result[x].preview_url}\n\n\n`
-                    }
-                    reply(txt)
-                    break
 		case 'thunder':
                 if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -4857,28 +4933,6 @@ break
 				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
-        case 'joox':
-				if (!isRegistered) return reply(ind.noregis())
-				if (!isPrem) return reply(ind.premon(pushname))
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-                data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${body.slice(6)}&apikey=BotWeA`, {method: 'get'})
-               if (data.error) return reply(data.error)
-                 infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
-                buffer = await getBuffer(data.result.thumb)
-                lagu = await getBuffer(data.result.mp3)
-                dappa.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-                dappa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', filename: `${data.result.title}.mp3`, quoted: mek})
-                await limitAdd(sender)
-                break
-        case 'bitly':
-				if (!isRegistered) return reply(ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-               client.updatePresence(from, Presence.composing) 
-                data = await fetchJson(`https://tobz-api.herokuapp.com/api/bitly?url=${args[0]}&apikey=BotWeA`)
-                hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
-                reply(hasil)
-                await limitAdd(sender)
-                break
                 case 'nangis':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -4946,44 +5000,6 @@ break
 					})
 					await limitAdd(sender)
 					break
-        case 'chord':
-                anu = await fetchJson(`https://tobz-api.herokuapp.com/api/chord?q=${body.slice(7)}&apikey=BotWeA`)
-                dappa.sendMessage(from, anu.result, text, {quoted:mek})
-                break
-				case 'moddroid':
-				if (!isRegistered) return reply(ind.noregis())
-				if (!isPrem) return reply(ind.premon(pushname))
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-			data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
-			hepi = data.result[0] 
-			teks = `*Nama*: ${data.result[0].title}\n*publisher*: ${hepi.publisher}\n*mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*latest version*: ${hepi.latest_version}\n*genre*: ${hepi.genre}\n*link:* ${hepi.link}\n*download*: ${hepi.download}`
-			buffer = await getBuffer(hepi.image)
-			dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
-			await limitAdd(sender)
-			break
-			case 'happymod':
-				if (!isRegistered) return reply(ind.noregis())
-				if (!isPrem) return reply(ind.premon(pushname))
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-			data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
-			hupo = data.result[0] 
-			teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
-			buffer = await getBuffer(hupo.image)
-			dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
-			await limitAdd(sender)
-			break
-        case 'ttp2':
-		            if (!isRegistered) return reply( ind.noregis())
-                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} LoL Human`)
-                    txt = args.join(" ")
-                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/ttp?apikey=RiuApikey&text=${txt}`)
-                    dappa.sendMessage(from, buffer, sticker, { quoted: mek })
-                    break
-        case 'attp':
-				if (args.length < 1) return reply(`uhm teksnya mana?\n*Contoh ${prefix}attp NoobzX gans*`)
-				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
-				dappa.sendMessage(from, attp2, sticker, {quoted: mek})
-				break
         case 'tiktokstalk':
 				if (!isRegistered) return reply(ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
