@@ -4721,99 +4721,171 @@ break
         }
         break
         //menu by NoobzX
-           case 'nangis':
-				// Fix Case By Yogi/Hans⛔
+           case 'wanted':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await dappa.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(7)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/wanted/?urlgbr=${anu.display_url}&text1=Dicari&text2=${tels}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'gtav':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(7)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/gtavposter/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'facebookpage':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(14)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/facebookprof/?urlgbr=${anu.display_url}&text=${tels}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'costumwp':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(14)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/customwp/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'pantaimalam':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(14)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/nightbeach/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'pencil':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(14)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/pencil/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'bakar':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(7)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/burneffect/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+	case 'crossgun':
+	if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+	var imgbb = require('imgbb-uploader')
+	if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+	  ted = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo: mek
+	  reply(ind.wait())
+	  owgi = await client.downloadAndSaveMediaMessage(ted)
+	  tels = body.slice(7)
+	  anu = await imgbb("08579d070df9a07cb1c2ee565aece767", owgi)
+	  hsehe = await getBuffer(`https://videfikri.com/api/textmaker/crossgun/?urlgbr=${anu.display_url}`)
+	 dappa.sendMessage(from, hsehe, image, {quoted:mek})
+	} else {
+	  reply('Jangan tambah kan apapun pada command')
+	}
+	break
+		case 'hartatata3':
+				 				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					ranp = getRandom('.gif')
-					rano = getRandom('.webp')
-					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=itsmeiky633', {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(ind.stikga())
-						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					await limitAdd(sender)
-					break
-                case 'blowjob':
-				// Fix Case By Yogi/Hans⛔
+				if (args.length < 1) return reply(ind.wrongf())
+				bh = body.slice(12)
+				reply(ind.wait())
+				buffer = await getBuffer(`https://api.vhtear.com/hartatahta?text=${bh}&apikey=c1d162b46e634f389efa1ac715f03d03`)
+				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+		case 'text2gif':
+				 				
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isNsfw) return reply(ind.nsfwoff())
-				
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					ranp = getRandom('.gif')
-					rano = getRandom('.webp')
-					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=BotWeA', {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(ind.stikga())
-						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					await limitAdd(sender)
-					break
-		case 'rdmhentai':
-		case 'randomhentai':
-					// Fix Case By Yogi/Hans⛔
-                 if (!isRegistered) return reply( ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-					
-					if (!isNsfw) return reply(ind.nsfwoff())
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-                                        gatauda = body.slice(12)
-					reply(ind.wait())
-                                        anu = await fetchJson(`https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek})
-					await limitAdd(sender)
-                                        break
-		case 'cium':
-                                        // Fix Case By Yogi/Hans⛔
-                 if (!isRegistered) return reply( ind.noregis())
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-					
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					ranp = getRandom('.gif')
-					rano = getRandom('.webp')
-					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(ind.stikga())
-						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					await limitAdd(sender)
-					break
-		case 'peluk':
-				// Fix Case By Yogi/Hans⛔
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-					ranp = getRandom('.gif')
-					rano = getRandom('.webp')
-					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
-					if (anu.error) return reply(anu.error)
-					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
-						fs.unlinkSync(ranp)
-						if (err) return reply(ind.stikga())
-						buffer = fs.readFileSync(rano)
-						client.sendMessage(from, buffer, sticker, {quoted: mek})
-						fs.unlinkSync(rano)
-					})
-					await limitAdd(sender)
-					break
-        
+				if (args.length < 1) return reply(ind.wrongf())
+				bh = body.slice(10)
+				reply(ind.wait())
+				buffer = await getBuffer(`https://api.vhtear.com/textxgif?text=${bh}&apikey=c1d162b46e634f389efa1ac715f03d03`)
+				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+		case 'attp':
+				if (args.length < 1) return reply(`_Teksnya Mana Boss_\n*Contoh ${prefix}attp Wajahku Ganteng*`)
+				attp2 = await getBuffer(`https://api.xteam.xyz/attp?file&text=${body.slice(6)}`)
+				dappa.sendMessage(from, attp2, sticker, {quoted: mek})
+				break
 		case 'apkpure':
 				// Fix Case By buffer/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
