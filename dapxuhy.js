@@ -4791,20 +4791,7 @@ break
                     buffer = await getBuffer(`https://api.zeks.xyz/api/${command}?text=${txt}&apikey=apivinz`)
                     dappa.sendMessage(from, buffer, image, {caption: 'Jangan Cuma make doang Follow instagram.com/noobz.sad.offc_', quoted: mek})
          break
-				case 'quotemaker':
-                if (!isRegistered) return reply(ind.noregis())
-                if (isLimit(sender)) return reply(ind.limitend(pusname))
-                var gh = body.slice(12)
-					var quote = gh.split("|")[0];
-					var wm = gh.split("|")[1];
-					const pref = `Usage: \n${prefix}quotemaker teks|watermark\n\nEx :\n${prefix}quotemaker ini contoh|bicit`
-					if (args.length < 1) return reply(pref)
-					reply(ind.wait())
-					anu = await fetchJson(`https://terhambar.com/aw/qts/?kata=${quote}&author=${wm}&tipe=random`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					dappa.sendMessage(from, buffer, image, {caption: 'Nih anjim', quoted: mek})
-					await limitAdd(sender)
-					break
+				
 				//fadhli 
 				case 'pinterest':
 					if (!isRegistered) return reply(ind.noregis())
