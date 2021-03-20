@@ -4721,30 +4721,99 @@ break
         }
         break
         //menu by NoobzX
-        case 'moddroid':
-				// Fix Case By buffer/Hans⛔
+           case 'nangis':
+				// Fix Case By Yogi/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				data = await fetchJson(`https://tobz-api.herokuapp.com/api/moddroid?q=${body.slice(10)}&apikey=BotWeA`)
-				hepi = data.result[0] 
-				teks = `*Nama*: ${data.result[0].title}\n*Publisher*: ${hepi.publisher}\n*Mod info:* ${hepi.mod_info}\n*size*: ${hepi.size}\n*Latest version*: ${hepi.latest_version}\n*Genre*: ${hepi.genre}\n*Link:* ${hepi.link}\n*Download*: ${hepi.download}`
-				buffer = await getBuffer(hepi.image)
-				dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
-				await limitAdd(sender)
-				break
-		case 'happymod':
-				// Fix Case By buffer/Hans⛔
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://api.shizukaa.xyz/api/bj18?apikey=itsmeiky633', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.url} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender)
+					break
+                case 'blowjob':
+				// Fix Case By Yogi/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (!isNsfw) return reply(ind.nsfwoff())
+				
 				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				data = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${body.slice(10)}&apikey=BotWeA`)
-				hupo = data.result[0] 
-				teks = `*Nama*: ${data.result[0].title}\n*version*: ${hupo.version}\n*size:* ${hupo.size}\n*root*: ${hupo.root}\n*purchase*: ${hupo.price}\n*link*: ${hupo.link}\n*download*: ${hupo.download}`
-				buffer = await getBuffer(hupo.image)
-				dappa.sendMessage(from, buffer, image, {quoted: mek, caption: `${teks}`})
-				await limitAdd(sender)
-				break
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://tobz-api.herokuapp.com/api/nsfwblowjob?apikey=BotWeA', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender)
+					break
+		case 'rdmhentai':
+		case 'randomhentai':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					
+					if (!isNsfw) return reply(ind.nsfwoff())
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+                                        gatauda = body.slice(12)
+					reply(ind.wait())
+                                        anu = await fetchJson(`https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633`, {method: 'get'})
+                                        buffer = await getBuffer(anu.result)
+                                        client.sendMessage(from, buffer, image, {quoted: mek})
+					await limitAdd(sender)
+                                        break
+		case 'cium':
+                                        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
+					
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender)
+					break
+		case 'peluk':
+				// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					ranp = getRandom('.gif')
+					rano = getRandom('.webp')
+					anu = await fetchJson('https://api.shizukaa.xyz/api/randomimage?apikey=itsmeiky633', {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+						fs.unlinkSync(ranp)
+						if (err) return reply(ind.stikga())
+						buffer = fs.readFileSync(rano)
+						client.sendMessage(from, buffer, sticker, {quoted: mek})
+						fs.unlinkSync(rano)
+					})
+					await limitAdd(sender)
+					break
+        
 		case 'apkpure':
 				// Fix Case By buffer/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
@@ -4758,63 +4827,7 @@ break
 				reply(teks.trim())
 				await limitAdd(sender)
 				break
-		case 'jadwalbola': 			
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				data = await fetchJson(`https://api.vhtear.com/jadwalbola&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
-				teks = '=================\n'
-				for (let i of data.result.data) {
-					teks += `❏ *Kick Off* : ${i.kickoff}\n❏ *Pertandingan* : ${i.pertandingan}\n❏ *Stasiuntv* : ${i.stasiuntv}\n\n=================\n\n`
-					}
-				reply(teks.trim())
-				await limitAdd(sender)
-				break
-		case 'coronainfo': 
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				data = await fetchJson(`https://api.vhtear.com/corona&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
-				teks = '=================\n'
-				for (let i of data.result) {
-					teks += `*Updated* : ${i.updated}\n*Country* : ${i.country}\n*CountryInfo* : \n*ID* : ${i.countryInfo._id}\n*iso2* : ${i.countryInfo.iso2}\n*iso3* : ${i.countryInfo.iso3}\n*lat* : ${i.countryInfo.lat}\n*long* : ${i.countryInfo.long}\n*cases* : ${i.cases}\n*todayCases* : ${i.todayCases}\n*deaths* : ${i.deaths}\n*todayDeaths* : ${i.todayDeaths}\n*recovered* : ${i.recovered}\n*todayRecovered* : ${i.todayRecovered}\n*active* : ${i.active}\n*critical* : ${i.critical}\n*casesPerOneMillion* : ${i.casesPerOneMillion}\n*deathsPerOneMillion* : ${i.deathsPerOneMillion}\n*tests* : ${i.tests}\n*testsPerOneMillion* : ${i.testsPerOneMillion}\n*population* : ${i.population}\n*continent* : ${i.continent}\n*oneCasePerPeople* : ${i.oneCasePerPeople}\n*oneDeathPerPeople* : ${i.oneDeathPerPeople}\n*oneTestPerPeople* : ${i.oneTestPerPeople}\n*activePerOneMillion* : ${i.activePerOneMillion}\n*recoveredPerOneMillion* : ${i.recoveredPerOneMillion}\n*criticalPerOneMillion* : ${i.criticalPerOneMillion}\n=================\n`
-					}
-				reply(teks.trim())
-				await limitAdd(sender)
-				break
-		case 'bitly':
-				// Fix Case By buffer/Hans⛔
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				client.updatePresence(from, Presence.composing) 
-				data = await fetchJson(`https://tobz-api.herokuapp.com/api/bitly?url=${args[0]}&apikey=BotWeA`)
-				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
-				reply(hasil)
-				await limitAdd(sender)
-				break
-		case 'cuttly':
-				 				
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				client.updatePresence(from, Presence.composing) 
-				data = await fetchJson(`https://hujanapi.herokuapp.com/api/cuttly?url=${args[0]}&apikey=trial2k21`)
-				hasil = `link : ${args[0]}\n\nOutput : ${data.result.Short}`
-				reply(hasil)
-				await limitAdd(sender)
-				break
-				case 'pornhub':
-                	
-					var gh = body.slice(9)
-					var porn = gh.split("/")[0];
-					var hub = gh.split("/")[1];
-					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}pornhub buffer/Hub`)
-					reply(ind.wait())
-					alan = await getBuffer(`https://vinz.zeks.xyz/api/pornhub?text1=${porn}&text2=${hub}`)
-					dappa.sendMessage(from, alan, image, {quoted: mek})
-					await limitAdd(sender)
-				break
+		
 				case 'googletext':
                 	
 					var gh = body.slice(12)
@@ -4838,57 +4851,7 @@ break
 					dappa.sendMessage(from, buffer, image, {quoted: mek})
 					await limitAdd(sender)
 				break
-				case 'wallgravity':
-                	
-					var gh = body.slice(13)
-					var t1 = gh.split("/")[0];
-					var t2 = gh.split("/")[1];
-					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}wallgravity buffer/Pw`)
-					reply(ind.wait())
-					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/wallgravity?apikey=RamlanID&text1=${t1}&text2=${t2}`)
-					dappa.sendMessage(from, buffer, image, {quoted: mek})
-					await limitAdd(sender)
-				break
-				case 'space':
-                	
-					var gh = body.slice(7)
-					var t1 = gh.split("/")[0];
-					var t2 = gh.split("/")[1];
-					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}space buffer/Pw`)
-					reply(ind.wait())
-					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/space?apikey=RamlanID&text1=${t1}&text2=${t2}`)
-					dappa.sendMessage(from, buffer, image, {quoted: mek})
-					await limitAdd(sender)
-				break
-				case 'marvelstudio':
-                	
-					var gh = body.slice(14)
-					var t1 = gh.split("/")[0];
-					var t2 = gh.split("/")[1];
-					if (args.length < 1) return reply(`ã€Œâ—ã€Contoh : ${prefix}marvelstudio buffer/Pw`)
-					reply(ind.wait())
-					buffer = await getBuffer(`http://lolhuman.herokuapp.com/api/textprome2/marvelstudio?apikey=RamlanID&text1=${t1}&text2=${t2}`)
-					dappa.sendMessage(from, buffer, image, {quoted: mek})
-					await limitAdd(sender)
-				break
-		case 'tinyurl':
-               client.updatePresence(from, Presence.composing) 
-                data = await fetchJson(`https://tobz-api.herokuapp.com/api/tinyurl?url=${args[0]}&apikey=BotWeA`)
-                hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
-                reply(hasil)
-                await limitAdd(sender)
-                break
-		case 'shrtco':
-				 				
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				client.updatePresence(from, Presence.composing) 
-				data = await fetchJson(`http://lolhuman.herokuapp.com/api/shortlink2?url=${args[0]}&apikey=WEMPYGANSS`)
-				hasil = `link : ${args[0]}\n\nOutput : ${data.result}`
-				reply(hasil)
-				await limitAdd(sender)
-				break
+				
                 case 'darkneon':
                 case 'candlemug':
                 case 'lovemsg':
