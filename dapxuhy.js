@@ -4720,6 +4720,36 @@ break
           reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
         }
         break
+        //menu by NoobzX
+        case 'tiktokstalk':
+				if (!isRegistered) return reply(ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				try {
+						if (args.length < 1) return dappa.sendMessage(from, '𝘂𝘀𝗲r 𝗻𝗮𝗺𝗲 𝗺𝗮𝗻𝗮 ?', text, {quoted: mek})
+						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
+						reply(ind.wait())
+						teks = `*ID* : ${user.id}\n*Username* : ${user.uniqueId}\n*Nickname* : ${user.nickname}\n*Followers* : ${stats.followerCount}\n*Followings* : ${stats.followingCount}\n*Posts* : ${stats.videoCount}\n*Luv* : ${stats.heart}\n`
+						buffer = await getBuffer(user.avatarLarger)
+						dappa.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply('[ERROR] 𝗸𝗲𝗺𝘂𝗻𝗴𝗸𝗶𝗻𝗮𝗻 𝘂𝘀𝗲𝗿𝗻𝗮𝗺e 𝘁𝗶𝗱𝗮𝗸 𝘃𝗮𝗹𝗶d?')
+					}
+					await limitAdd(sender)
+				break
+        case 'bass':
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await dappa.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${media} -af equalizer=f=94:width_type=o:width=2:g=30 ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(media)
+						if (err) return reply('Error!')
+						buffer = fs.readFileSync(ran)
+						dappa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+						fs.unlinkSync(ran)
+					})
+				break
+				//stop
 				case 'tts':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
