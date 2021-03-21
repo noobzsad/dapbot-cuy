@@ -4213,32 +4213,6 @@ break
 					dappa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek, caption: 'Nih Gan'})
 					await limitAdd(sender) 
 					break 
-                //case 'ytmp3':
-                reply(ind.wait)
-                anu = await fetchJson(`https://st4rz.herokuapp.com/api/yta2?url=${body.slice(7)}`)
-                if (anu.error) return reply(anu.error)
-                ingfomp3 = `*Lagu Ditemukan*\n➸ Judul : ${anu.title}\n\n*Proses*`
-                buffer = await getBuffer(anu.thumb)
-                lagu = await getBuffer(anu.result)
-                dappa.sendMessage(from, buffer, image, {quoted: mek, caption: ingfomp3})
-                dappa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', quoted: mek})
-                break
-                //case 'ytmp4':
-                    ini_link = args[0]
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytvideo?apikey=${LolHuman}&url=${ini_link}`)
-                    get_result = get_result.result
-                    txt = `Title : ${get_result.title}\n`
-                    txt += `Uploader : ${get_result.uploader}\n`
-                    txt += `Duration : ${get_result.duration}\n`
-                    txt += `View : ${get_result.view}\n`
-                    txt += `Like : ${get_result.like}\n`
-                    txt += `Dislike : ${get_result.dislike}\n`
-                    txt += `Description :\n ${get_result.description}`
-                    buffer = await getBuffer(get_result.thumbnail)
-                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
-                    get_audio = await getBuffer(get_result.link[0].link)
-                    dappa.sendMessage(from, get_audio, video, { mimetype: 'video/mp4', filename: `${get_result.title}.mp4`, quoted: mek })
-                    break
 				case 'lirik':    
                			if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -4737,24 +4711,30 @@ break
                     reply(txt)
                     break
                 case 'ytplay':
-                    query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytplay?apikey=${apikey}&query=${query}`)
-                    get_result = get_result.result
-                    get_info = get_result.info
-                    txt = `Title : ${get_info.title}\n`
-                    txt += `Uploader : ${get_info.uploader}\n`
-                    txt += `Duration : ${get_info.duration}\n`
-                    txt += `View : ${get_info.view}\n`
-                    txt += `Like : ${get_info.like}\n`
-                    txt += `Dislike : ${get_info.dislike}\n`
-                    txt += `Description :\n ${get_info.description}\n`
-                    buffer = await getBuffer(get_info.thumbnail)
-                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
-                    get_audio = await getBuffer(get_result.audio[3].link)
-                    dappa.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_info.title}.mp3`, quoted: mek })
-                    get_video = await getBuffer(get_result.video[0].link)
-                    dappa.sendMessage(from, get_audio, video, { mimetype: 'video/mp4', filename: `${get_info.title}.mp4`, quoted: mek })
-                    break
+        // Fix Bug By OzanDesu				
+        if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        if (isBanned) return reply('Maaf kamu sudah terbenned!')
+        reply(ind.wait())
+            query = args.join(" ")
+               get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytplay?apikey=${lolapi}&query=${query}`)
+               get_result = get_result.result
+               get_info = get_result.info
+               txt = `Title : ${get_info.title}\n`
+               txt += `Uploader : ${get_info.uploader}\n`
+               txt += `Duration : ${get_info.duration}\n`
+               txt += `View : ${get_info.view}\n`
+               txt += `Like : ${get_info.like}\n`
+               txt += `Dislike : ${get_info.dislike}\n`
+               txt += `Description :\n ${get_info.description}\n`
+               buffer = await getBuffer(get_info.thumbnail)
+               
+      dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
+               lagu = await getBuffer(get_result.audio[3].link)
+        
+        dappa.sendMessage(from, lagu, audio, { mimetype: 'audio/mp4', filename: `lagu.mp3`, quoted: mek })
+        await limitAdd(sender)
+        break
                 case 'ytmp4':
           if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -4774,28 +4754,6 @@ break
                     get_audio = await getBuffer(get_result.link[0].link)
                     dappa.sendMessage(from, get_audio, video, { mimetype: 'video/mp4', filename: `${get_result.title}.mp4`, quoted: mek })
                     break
-                    
-      /*case 'ytmp4':
-        // Fix Bug By OzanDesu				
-        if (!isRegistered) return reply(ind.noregis())
-        if (isLimit(sender)) return reply(ind.limitend(pusname))
-        if (args.length < 1) return reply('Urlnya mana gan?')
-        if (!isUrl(args[0]) && !args[0].includes('youtu.be')) return reply('url nya salah oniichan!')
-        anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp4?apikey=itsmeiky633&url=${args[0]}`, { method: 'get' })
-        if (anu.error) return reply(anu.error)
-        ytt = `уАМ *YOUTUBE MP4 DOWNLOADER* уАН\n\nTitle : *${anu.title}*\n*Size:* ${anu.filesize}\n *Deskripsi:* ${anu.desc}\n\n Tunggu Sebentar 1 menit Mungkin Agak Lama Karna Mendownload Video`
-        buff = await getBuffer(anu.thumb)
-        reply(ind.wait())
-        buffer = await getBuffer(anu.result)
-        itsmeiky.sendMessage(from, buff, image, { quoted: shizuka, caption: ytt })
-        itsmeiky.sendMessage(from, buffer, video, { mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: shizuka, caption: 'Nih Gan' })
-        await limitAdd(sender)
-        break*/
-        
-        
-        
-        
-        
         case 'ytmp3':
         if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -4815,22 +4773,6 @@ break
                     get_audio = await getBuffer(get_result.link[3].link)
                     dappa.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: mek })
                     break
-      /*case 'ytmp3':
-        // Fix Bug By OzanDesu				
-        if (!isRegistered) return reply(ind.noregis())
-        if (isLimit(sender)) return reply(ind.limitend(pusname))
-        if (args.length < 1) return reply('Urlnya mana gan?')
-        if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply('urlnya salah, oniichan')
-        anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp3?apikey=itsmeiky633&url=${args[0]}&apiKey=${IDxO1TFYnKADlX4pxcHa}`, { method: 'get' })
-        if (anu.error) return reply(anu.error)
-        teks = `уАМ *YOUTUBE MP3 DOWNLOADER* уАН\n\nтАв Title : *${anu.title}*\nтАв *Size:* ${anu.filesize}\n*тАв Deskripsi:* ${anu.desc}\n\n Tunggu Sebentar 1 menit Mungkin Agak Lama Karna Mendownload Video`
-        buff = await getBuffer(anu.thumb)
-        reply(ind.wait())
-        buffer = await getBuffer(anu.result)
-        itsmeiky.sendMessage(from, buff, image, { quoted: shizuka, caption: teks })
-        itsmeiky.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: iky })
-        await limitAdd(sender)
-        break*/
                 case 'pinterest':
                     if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} loli kawaii`)
                     query = args.join(" ")
