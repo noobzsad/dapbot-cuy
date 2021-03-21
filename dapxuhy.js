@@ -2862,13 +2862,13 @@ break
         if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
         if (isBanned) return reply('Maaf kamu sudah terbenned!')
-        itsmeiky.updatePresence(from, Presence.composing)
+        dappa.updatePresence(from, Presence.composing)
         data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, { method: 'get' })
         reply(ind.wait())
         n = JSON.parse(JSON.stringify(data));
         ini_url = n[Math.floor(Math.random() * n.length)];
         buffer = await getBuffer(ini_url)
-        dappa.sendMessage(from, buffer, image, { quoted: iky, caption: `*PINTEREST*` })
+        dappa.sendMessage(from, buffer, image, { quoted: mek, caption: `*PINTEREST*` })
         await limitAdd(sender)
         break
 				case 'husbu':
@@ -4213,7 +4213,7 @@ break
 					dappa.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek, caption: 'Nih Gan'})
 					await limitAdd(sender) 
 					break 
-                case 'ytmp3':
+                //case 'ytmp3':
                 reply(ind.wait)
                 anu = await fetchJson(`https://st4rz.herokuapp.com/api/yta2?url=${body.slice(7)}`)
                 if (anu.error) return reply(anu.error)
@@ -4223,7 +4223,7 @@ break
                 dappa.sendMessage(from, buffer, image, {quoted: mek, caption: ingfomp3})
                 dappa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', quoted: mek})
                 break
-                case 'ytmp4':
+                //case 'ytmp4':
                     ini_link = args[0]
                     get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytvideo?apikey=${LolHuman}&url=${ini_link}`)
                     get_result = get_result.result
@@ -4721,6 +4721,166 @@ break
         }
         break
         //menu by NoobzX
+        case 'ytsearch':
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} Tahu Bacem`)
+                    query = args.join(" ")
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytsearch?apikey=${apikey}&query=${query}`)
+                    get_result = get_result.result
+                    txt = ""
+                    for (var x in get_result) {
+                        txt += `Title : ${get_result[x].title}\n`
+                        txt += `Views : ${get_result[x].views}\n`
+                        txt += `Published : ${get_result[x].published}\n`
+                        txt += `Thumbnail : ${get_result[x].thumbnail}\n`
+                        txt += `Link : https://www.youtube.com/watch?v=${get_result[x].videoId}\n\n`
+                    }
+                    reply(txt)
+                    break
+                case 'ytplay':
+                    query = args.join(" ")
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytplay?apikey=${apikey}&query=${query}`)
+                    get_result = get_result.result
+                    get_info = get_result.info
+                    txt = `Title : ${get_info.title}\n`
+                    txt += `Uploader : ${get_info.uploader}\n`
+                    txt += `Duration : ${get_info.duration}\n`
+                    txt += `View : ${get_info.view}\n`
+                    txt += `Like : ${get_info.like}\n`
+                    txt += `Dislike : ${get_info.dislike}\n`
+                    txt += `Description :\n ${get_info.description}\n`
+                    buffer = await getBuffer(get_info.thumbnail)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
+                    get_audio = await getBuffer(get_result.audio[3].link)
+                    dappa.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_info.title}.mp3`, quoted: mek })
+                    get_video = await getBuffer(get_result.video[0].link)
+                    dappa.sendMessage(from, get_audio, video, { mimetype: 'video/mp4', filename: `${get_info.title}.mp4`, quoted: mek })
+                    break
+                case 'ytmp4':
+          if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        reply(ind.wait())
+                    ini_link = args[0]
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytvideo?apikey=Oz-san&url=${ini_link}`)
+                    get_result = get_result.result
+                    txt = `Title : ${get_result.title}\n`
+                    txt += `Uploader : ${get_result.uploader}\n`
+                    txt += `Duration : ${get_result.duration}\n`
+                    txt += `View : ${get_result.view}\n`
+                    txt += `Like : ${get_result.like}\n`
+                    txt += `Dislike : ${get_result.dislike}\n`
+                    txt += `Description :\n ${get_result.description}`
+                    buffer = await getBuffer(get_result.thumbnail)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
+                    get_audio = await getBuffer(get_result.link[0].link)
+                    dappa.sendMessage(from, get_audio, video, { mimetype: 'video/mp4', filename: `${get_result.title}.mp4`, quoted: mek })
+                    break
+                    
+      /*case 'ytmp4':
+        // Fix Bug By OzanDesu				
+        if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        if (args.length < 1) return reply('Urlnya mana gan?')
+        if (!isUrl(args[0]) && !args[0].includes('youtu.be')) return reply('url nya salah oniichan!')
+        anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp4?apikey=itsmeiky633&url=${args[0]}`, { method: 'get' })
+        if (anu.error) return reply(anu.error)
+        ytt = `уАМ *YOUTUBE MP4 DOWNLOADER* уАН\n\nTitle : *${anu.title}*\n*Size:* ${anu.filesize}\n *Deskripsi:* ${anu.desc}\n\n Tunggu Sebentar 1 menit Mungkin Agak Lama Karna Mendownload Video`
+        buff = await getBuffer(anu.thumb)
+        reply(ind.wait())
+        buffer = await getBuffer(anu.result)
+        itsmeiky.sendMessage(from, buff, image, { quoted: shizuka, caption: ytt })
+        itsmeiky.sendMessage(from, buffer, video, { mimetype: 'video/mp4', filename: `${anu.title}.mp4`, quoted: shizuka, caption: 'Nih Gan' })
+        await limitAdd(sender)
+        break*/
+        
+        
+        
+        
+        
+        case 'ytmp3':
+        if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        reply(ind.wait()
+                    ini_link = args[0]
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytaudio?apikey=Oz-san&url=${ini_link}`)
+                    get_result = get_result.result
+                    txt = `Title : ${get_result.title}\n`
+                    txt += `Uploader : ${get_result.uploader}\n`
+                    txt += `Duration : ${get_result.duration}\n`
+                    txt += `View : ${get_result.view}\n`
+                    txt += `Like : ${get_result.like}\n`
+                    txt += `Dislike : ${get_result.dislike}\n`
+                    txt += `Description :\n ${get_result.description}`
+                    buffer = await getBuffer(get_result.thumbnail)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek, caption: txt })
+                    get_audio = await getBuffer(get_result.link[3].link)
+                    dappa.sendMessage(from, get_audio, audio, { mimetype: 'audio/mp4', filename: `${get_result.title}.mp3`, quoted: mek })
+                    break
+      /*case 'ytmp3':
+        // Fix Bug By OzanDesu				
+        if (!isRegistered) return reply(ind.noregis())
+        if (isLimit(sender)) return reply(ind.limitend(pusname))
+        if (args.length < 1) return reply('Urlnya mana gan?')
+        if (!isUrl(args[0]) && !args[0].includes('youtu')) return reply('urlnya salah, oniichan')
+        anu = await fetchJson(`https://api.shizukaa.xyz/api/ytmp3?apikey=itsmeiky633&url=${args[0]}&apiKey=${IDxO1TFYnKADlX4pxcHa}`, { method: 'get' })
+        if (anu.error) return reply(anu.error)
+        teks = `уАМ *YOUTUBE MP3 DOWNLOADER* уАН\n\nтАв Title : *${anu.title}*\nтАв *Size:* ${anu.filesize}\n*тАв Deskripsi:* ${anu.desc}\n\n Tunggu Sebentar 1 menit Mungkin Agak Lama Karna Mendownload Video`
+        buff = await getBuffer(anu.thumb)
+        reply(ind.wait())
+        buffer = await getBuffer(anu.result)
+        itsmeiky.sendMessage(from, buff, image, { quoted: shizuka, caption: teks })
+        itsmeiky.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', filename: `${anu.title}.mp3`, quoted: iky })
+        await limitAdd(sender)
+        break*/
+                case 'pinterest':
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} loli kawaii`)
+                    query = args.join(" ")
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${apikey}&query=${query}`)
+                    ini_url = ini_url.result
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+                case 'pinterestdl':
+                    ini_url = args[0]
+                    ini_url = await fetchJson(`http://lolhuman.herokuapp.com/api/pinterestdl?apikey=${apikey}&url=${ini_url}`)
+                    ini_url = ini_url.result["736x"]
+                    buffer = await getBuffer(ini_url)
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+        case 'jadwaltv':
+                    channel = args[0]
+                    tvnow = await fetchJson(`http://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${apikey}`)
+                    tvnow = tvnow.result
+                    txt = `Jadwal TV ${channel.toUpperCase()}\n`
+                    for (var x in tvnow) {
+                        txt += `${x} - ${tvnow[x]}\n`
+                    }
+                    reply(txt)
+                    break
+                case 'nhentai':
+                    henid = args[0]
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${apikey}`)
+                    get_result = get_result.result
+                    txt = `Title Romaji : ${get_result.title_romaji}\n`
+                    txt += `Title Native : ${get_result.title_native}\n`
+                    txt += `Read Online : ${get_result.read}\n`
+                    get_info = get_result.info
+                    txt += `Parodies : ${get_info.parodies}\n`
+                    txt += `Character : ${get_info.characters.join(", ")}\n`
+                    txt += `Tags : ${get_info.tags.join(", ")}\n`
+                    txt += `Artist : ${get_info.artists}\n`
+                    txt += `Group : ${get_info.groups}\n`
+                    txt += `Languager : ${get_info.languages.join(", ")}\n`
+                    txt += `Categories : ${get_info.categories}\n`
+                    txt += `Pages : ${get_info.pages}\n`
+                    txt += `Uploaded : ${get_info.uploaded}\n`
+                    reply(txt)
+                    break
+        case 'alquranaudio':
+                    if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} 18 or ${prefix + command} 18/10`)
+                    surah = args[0]
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${apikey}`)
+                    dappa.sendMessage(from, buffer, audio, { quoted:mek, mimetype: Mimetype.mp4Audio })
+                    break
         case 'ktpmaker':
                     if (args.length == 0) return reply(`Usage: ${prefix + command} nik|provinsi|kabupaten|nama|tempat, tanggal lahir|jenis kelamin|jalan|rt/rw|kelurahan|kecamatan|agama|status nikah|pekerjaan|warga negara|berlaku sampai|url_image\n\nExample: ${prefix + command} 456127893132123|bumipertiwi|fatamorgana|LoL Human|mars, 99-99-9999|belum ditemukan|jl wardoyo|999/999|turese|imtuni|alhamdulillah islam|jomblo kack|mikirin dia|indo ori no kw|hari kiamat|https://i.ibb.co/Xb2pZ88/test.jpg`)
                     get_args = args.join(" ").split("|")
