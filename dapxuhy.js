@@ -2857,20 +2857,6 @@ break
                     buffer = await getBuffer(ini_url)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
-                  case 'pinterest':
-        // Fix Bug By OzanDesu				
-        if (!isRegistered) return reply(ind.noregis())
-        if (isLimit(sender)) return reply(ind.limitend(pusname))
-        if (isBanned) return reply('Maaf kamu sudah terbenned!')
-        dappa.updatePresence(from, Presence.composing)
-        data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${body.slice(11)}`, { method: 'get' })
-        reply(ind.wait())
-        n = JSON.parse(JSON.stringify(data));
-        ini_url = n[Math.floor(Math.random() * n.length)];
-        buffer = await getBuffer(ini_url)
-        dappa.sendMessage(from, buffer, image, { quoted: mek, caption: `*PINTEREST*` })
-        await limitAdd(sender)
-        break
 				case 'husbu':
 				if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -4776,7 +4762,7 @@ break
                 case 'pinterest':
                     if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} loli kawaii`)
                     query = args.join(" ")
-                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=${apikey}&query=${query}`)
+                    ini_url = await fetchJson(`http://api.lolhuman.xyz/api/pinterest?apikey=Oz-san&query=${query}`)
                     ini_url = ini_url.result
                     buffer = await getBuffer(ini_url)
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
