@@ -4743,7 +4743,7 @@ break
         case 'ytmp3':
         if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
-        reply(ind.wait()
+        reply(ind.wait())
                     ini_link = args[0]
                     get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytaudio?apikey=Oz-san&url=${ini_link}`)
                     get_result = get_result.result
