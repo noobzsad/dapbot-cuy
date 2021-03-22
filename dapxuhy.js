@@ -4696,10 +4696,11 @@ break
                     }
                     reply(txt)
                     break
-                case 'ytplay':
+                case 'play':
         // Fix Bug By OzanDesu				
         if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
+        if (!isPremium) return reply('Maaf kamu bukan user premium!')
         if (isBanned) return reply('Maaf kamu sudah terbenned!')
         reply(ind.wait())
             query = args.join(" ")
@@ -4721,7 +4722,6 @@ break
         dappa.sendMessage(from, lagu, audio, { mimetype: 'audio/mp4', filename: `lagu.mp3`, quoted: mek })
         await limitAdd(sender)
         break
-                case 'ytmp4':
           if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
         reply(ind.wait())
@@ -4996,6 +4996,46 @@ break
 						reply('[ERROR] 𝗸𝗲𝗺𝘂𝗻𝗴𝗸𝗶𝗻𝗮𝗻 𝘂𝘀𝗲𝗿𝗻𝗮𝗺e 𝘁𝗶𝗱𝗮𝗸 𝘃𝗮𝗹𝗶d?')
 					}
 					await limitAdd(sender)
+				break
+				case 'slowmo':
+				
+				encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+				media = await dappa.downloadAndSaveMediaMessage(encmedia)
+				ran = getRandom('.mp3')
+				exec(`ffmpeg -i ${media} -filter:a "atempo=0.7,asetrate=44100" ${ran}`, (err, stderr, stdout) => {
+				fs.unlinkSync(media)
+				if (err) return reply('Error!')
+				buffer = fs.readFileSync(ran)
+				dappa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+				fs.unlinkSync(ran)
+				})
+				break
+
+				case 'tupai':
+				
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await dappa.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${media} -filter:a "atempo=0.5,asetrate=65100" ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(media)
+						if (err) return reply('Error!')
+						buffer = fs.readFileSync(ran)
+						dappa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+						fs.unlinkSync(ran)
+					})
+				break
+				case 'gemok':
+				
+					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
+					media = await dappa.downloadAndSaveMediaMessage(encmedia)
+					ran = getRandom('.mp3')
+					exec(`ffmpeg -i ${media} -filter:a "atempo=1.6,asetrate=22100" ${ran}`, (err, stderr, stdout) => {
+						fs.unlinkSync(media)
+						if (err) return reply('Error!')
+						buffer = fs.readFileSync(ran)
+						dappa.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', ptt:true, quoted: mek})
+						fs.unlinkSync(ran)
+					})
 				break
         case 'bass':
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
