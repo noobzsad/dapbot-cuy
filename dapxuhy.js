@@ -4222,19 +4222,6 @@ break
 					buffer = await getBuffer(anu.result.UrlVideo)
 					baby.sendMessage(from, buffer, video, {mimetype: 'video/mp4', quoted: mek})
 					break
-		case 'play':
-				if (!isRegistered) return reply(ind.noregis())
-		if (isBanned) return reply(ind.baned())
-				if (isLimit(sender)) return reply(ind.limitend(pusname)) 
-                reply(ind.wait())
-                anu = await fetchJson(`https://api.vhtear.com/ytmp3?query=${body.slice(6)}&apikey=${apivhtear}`)
-               if (anu.error) return reply(anu.error)
-                 infomp3 = `*Lagu Ditemukan*\n Judul : ${anu.result.title}\n Durasi : ${anu.result.duration}\n Size : ${anu.result.size}\n\n*[WAIT] Proses Dumlu Yakan*`
-                buffer = await getBuffer(anu.result.image)
-                lagu = await getBuffer(anu.result.mp3)
-                dappa.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
-                dappa.sendMessage(from, lagu, audio, {mimetype: 'audio/mp4', quoted: mek})
-                break	
                 case 'text3d':
                 if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -4700,7 +4687,6 @@ break
         // Fix Bug By OzanDesu				
         if (!isRegistered) return reply(ind.noregis())
         if (isLimit(sender)) return reply(ind.limitend(pusname))
-        if (!isPremium) return reply('Maaf kamu bukan user premium!')
         if (isBanned) return reply('Maaf kamu sudah terbenned!')
         reply(ind.wait())
             query = args.join(" ")
