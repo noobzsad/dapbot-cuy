@@ -2913,23 +2913,6 @@ break
 					dappa.sendMessage(from, buffer, image, {quoted: mek})
 					await limitAdd(sender)
 					break
-				case 'nsfwloli':
-				try {   
-				if (!isRegistered) return reply(ind.noregis())
-		if (isBanned) return reply(ind.baned())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (!isNsfw) return reply(ind.nsfwoff())
-				if (!isGroup) return reply(ind.groupo()) 
-				res = await fetchJson(`https://api.vhtear.com/randomloli&apikey=${apivhtear}`, {method: 'get'})
-					reply(ind.wait())
-					buffer = await getBuffer(res.result.result)
-					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Jangan jadiin bahan buat comli om'})
-				} catch (e) {
-						console.log(`Error :`, color(e,'red'))
-						reply(' *ERROR* ')
-				}
-					await limitAdd(sender)
-					break 
 				case 'ero':
 				    try {
                         if (!isRegistered) return reply(ind.noregis())
@@ -4600,74 +4583,565 @@ break
 					nye = await getBuffer(ku)
 					dappa.sendMessage(from, nye, image, { caption: 'HALLO ONII CHAN!!', quoted: mek })
 					break
-			
-                    
-				case 'stickergif':
-      case 'stikergif':
-      case 'sgif':
-      case 'stiker':
+        case 'stickerwm':
+                  case 'stiker':
       case 'sticker':
       case 's':
-        // Fix Bug By OzanDesu				
-        if (!isRegistered) return reply(ind.noregis())
-        if (isLimit(sender)) return reply(ind.limitend(pusname))
-        if (isBanned) return reply('Maaf kamu sudah terbenned!')
-        await limitAdd(sender)
-        if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-          const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-          const media = await dappa.downloadAndSaveMediaMessage(encmedia)
-          ran = getRandom('.webp')
-          await ffmpeg(`./${media}`)
-            .input(media)
-            .on('start', function(cmd) {
-              console.log(`Started : ${cmd}`)
-            })
-            .on('error', function(err) {
-              console.log(`Error : ${err}`)
-              fs.unlinkSync(media)
-              reply(ind.stikga())
-            })
-            .on('end', function() {
-              console.log('Finish')
-              buffer = fs.readFileSync(ran)
-              dappa.sendMessage(from, buffer, sticker, { quoted: mek })
-              fs.unlinkSync(media)
-              fs.unlinkSync(ran)
-            })
-            .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-            .toFormat('webp')
-            .save(ran)
-        } else if ((isMedia && mek.message.videoMessage.seconds < 11 || isQuotedVideo && mek.message.extendedTextMessage.contextInfo.quotedMessage.videoMessage.seconds < 11) && args.length == 0) {
-          const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
-          const media = await dappa.downloadAndSaveMediaMessage(encmedia)
-          ran = getRandom('.webp')
-          reply(ind.wait())
-          await ffmpeg(`./${media}`)
-            .inputFormat(media.split('.')[1])
-            .on('start', function(cmd) {
-              console.log(`Started : ${cmd}`)
-            })
-            .on('error', function(err) {
-              console.log(`Error : ${err}`)
-              fs.unlinkSync(media)
-              tipe = media.endsWith('.mp4') ? 'video' : 'gif'
-              reply(ind.stikga())
-            })
-            .on('end', function() {
-              console.log('Finish')
-              buffer = fs.readFileSync(ran)
-              dappa.sendMessage(from, buffer, sticker, { quoted: mek })
-              fs.unlinkSync(media)
-              fs.unlinkSync(ran)
-            })
-            .addOutputOptions([`-vcodec`, `libwebp`, `-vf`, `scale='min(320,iw)':min'(320,ih)':force_original_aspect_ratio=decrease,fps=15, pad=320:320:-1:-1:color=white@0.0, split [a][b]; [a] palettegen=reserve_transparent=on:transparency_color=ffffff [p]; [b][p] paletteuse`])
-            .toFormat('webp')
-            .save(ran)
-        } else {
-          reply(`Kirim gambar dengan caption ${prefix}sticker atau reply/tag gambar`)
-        }
-        break
+                    if ((isMedia && !mek.message.videoMessage || isQuotedImage)) {
+                        const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : mek
+                        filePath = await dappa.downloadAndSaveMediaMessage(encmedia, filename = getRandom());
+                        file_name = getRandom(".webp")
+                        ini_txt = args.join(" ").split("|")
+                        request({
+                            url: `http://api.lolhuman.xyz/api/convert/towebpauthor?apikey=${lolapi}`,
+                            method: 'POST',
+                            formData: {
+                                "img": fs.createReadStream(filePath),
+                                "package": 'NoobzXBOT',
+                                "author": 'NoobzXGans'
+                            },
+                            encoding: "binary"
+                        }, function(error, response, body) {
+                            fs.unlinkSync(filePath)
+                            fs.writeFileSync(file_name, body, "binary")
+                            ini_buff = fs.readFileSync(file_name)
+                            dappa.sendMessage(from, ini_buff, sticker, { quoted: mek })
+                            fs.unlinkSync(file_name)
+                        });
+                    } else {
+                        reply(`Kirim gambar dengan caption ${prefix + command} atau tag gambar yang sudah dikirim, untuk membuat gif ketik .sgif`)
+                    }
+                    break
         //menu by NoobzX
+        case 'jadwaltv':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(10)					
+					anu = await fetchJson(`https://api.zeks.xyz/api/jadwaltv?channel=${gatauda}&apikey=apivinz`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'katadilan': 
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/bacotandilan?apikey=itsmeiky633`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'katabucin': 
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/bucin?apikey=itsmeiky633`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'katabucin2': 
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/bucin?apikey=itsmeiky633`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+        case 'chord':
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					if (args.length < 1) return reply('Judul lagunya mana kak')
+					tels = body.slice(7)					
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/chord?q=${tels}&apikey=BotWeA`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'katacinta':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(8)
+					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/katacinta`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break
+		case 'pantun':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(8)					
+					anu = await fetchJson(`https://api.zeks.xyz/api/pantun?apikey=apivinz`, {method: 'get'})
+					reply(anu.result.pantun)
+					await limitAdd(sender)
+					break
+		case 'cersex': 
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					gatauda = body.slice(8)					
+					anu = await fetchJson(`https://api.vhtear.com/cerita_sex&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
+					reply(anu.result.cerita)
+					await limitAdd(sender)
+					break
+        case 'alay':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					if (args.length < 1) return reply('kasih teks lah^_^!!!')
+					data = await fetchJson(`https://api.zeks.xyz/api/alaymaker?kata=${body.slice(6)}&apikey=apivinz`)
+					reply(data.result)
+				        await limitAdd(sender)
+					break
+        case 'nsfwloli':
+				    try {
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+						if (!isNsfw) return reply(' *FALSE* ')
+						res = await fetchJson(`https://api.shizukaa.xyz/api/neko?apikey=itsmeiky633`, {method: 'get'})
+						buffer = await getBuffer(res.neko)
+						dappa.sendMessage(from, buffer, image, {quoted: shizuka, caption: 'Jangan jadiin bahan buat comli om'})
+					    } catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply(' *ERROR* ')
+					    }
+					    await limitAdd(sender)
+					    break
+        case 'wiki':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                if (args.length < 1) return reply('teks nya mana om?')
+                reply(mess.wait)
+                wiki = `${body.slice(6)}`
+                anu = await fetchJson(`https://api.shizukaa.xyz/api/wiki?apikey=itsmeiky633&q=${wiki}`, {method: 'get'})
+                if (anu.error) return reply(anu.error)
+                wikii = `${anu.result}`
+                dappa.sendMessage(from, wikii, text, {quoted: mek })
+                await limitAdd(sender) 
+                break
+               case 'asupan2':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                reply(mess.wait)
+                anu = await fetchJson(`https://api.shizukaa.xyz/api/asupan?apikey=itsmeiky633`)
+                asup = await getBuffer(anu.result)
+                dappa.sendMessage(from, asup, video, {mimetype: 'video/mp4', filename: `asupan_bangsa.mp4`, quoted: mek, caption: 'Asupannya Tuan:v'})
+                await limitAdd(sender) 
+                break
+               case 'wancak':
+                    buffer = await getBuffer(`http://api.lolhuman.xyz/api/onecak?apikey=RamlanID`, {method: 'get'})
+                    dappa.sendMessage(from, buffer, image, { quoted: mek })
+                    break
+        case 'babi':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+                 const gshizuka = await client.getGroupMembersId(groupId)
+                 let gmik = gshizuka[Math.floor(Math.random() * gshizuka.length)]
+                 const mmkk = `YANG PALING BABI DISINI ADALAH @${gmik.replace(/@c.us/g, '')}`
+                 client.sendTextWithMentions(dari, mmkk, id)
+                 break
+				case 'tebakgambar':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/tebakgambar?apikey=itsmeiky633`, {method: 'get'})
+					bufferkkk = await getBuffer(anu.img_url)
+					setTimeout( () => {
+					dappa.sendMessage(from, '*тЮ╕ Jawaban :* '+anu.jawaban, text, {quoted: mek }) // ur cods
+					}, 30000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_10 Detik lagiтАж_', text) // ur cods
+					}, 20000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_20 Detik lagi_тАж', text) // ur cods
+					}, 10000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_30 Detik lagi_тАж', text) // ur cods
+					}, 2500) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, bufferkkk, image, { caption: '_Jelaskan Apa Maksud Gambar Ini_', quoted: mek }) // ur cods
+					}, 0) // 1000 = 1s,
+					await limitAdd(sender) 
+					break  
+        case 'caklontong':
+					anu = await fetchJson(`https://api.vhtear.com/funkuis&apikey=dappgzwabot`, {method: 'get'})
+					caklontong = `*${anu.result.soal}*`
+					setTimeout( () => {
+					dappa.sendMessage(from, '*➸ Jawaban :* '+anu.result.jawaban+ '\n\n• Penjelasan: *'+ anu.result.desk+'*', text, {quoted: mek}) // ur cods
+					}, 30000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_10 Detik lagi…_', text) // ur cods
+					}, 20000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_20 Detik lagi_…', text) // ur cods
+					}, 10000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_30 Detik lagi_…', text) // ur cods
+					}, 2500) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, caklontong, text, {quoted: mek}) // ur cods
+					}, 0) // 1000 = 1s,
+					await limitAdd(sender) 
+					break 
+			case 'family100':
+                
+		
+					anu = await fetchJson(`https://api.vhtear.com/family100&apikey=dappgzwabot`, {method: 'get'})
+					family = `*${anu.result.soal}*`
+					setTimeout( () => {
+					dappa.sendMessage(from, '*➸ Jawaban :* '+anu.result.jawaban, text, {quoted: mek}) // ur cods
+					}, 30000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_10 Detik lagi…_', text) // ur cods
+					}, 20000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_20 Detik lagi_…', text) // ur cods
+					}, 10000) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, '_30 Detik lagi_…', text) // ur cods
+					}, 2500) // 1000 = 1s,
+					setTimeout( () => {
+					dappa.sendMessage(from, family, text, {quoted: mek }) // ur cods
+					}, 0) // 1000 = 1s,
+					await limitAdd(sender) 
+					break 
+        case 'katabijak':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/bijak?apikey=itsmeiky633`, {method: 'get'})
+					katabijak = `Kata Bijak: *${anu.result}*`
+					dappa.sendMessage(from, katabijak, text, {quoted: mek })
+					await limitAdd(sender) 
+					break
+			case 'katailham':
+			        // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				anu = await fetchJson(`https://api.shizukaa.xyz/api/bacotanilham?apikey=itsmeiky633`, {method: 'get'})
+				kata = anu.result
+				dappa.sendMessage(from, kata, text, {quoted: mek })
+				await limitAdd(sender)
+				break
+        case 'trendtwit':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					data = await fetchJson(`https://api.vhtear.com/trendtwitter?country=indonesia&apikey=c1d162b46e634f389efa1ac715f03d03`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Hastag* : ${i.hastag}\n*link* : ${i.link}\n*rank* : ${i.rank}\n*Tweet* : ${i.tweet}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+        case 'tribunews':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/tribunews?apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Judul* : ${i.title}\n*Time* : ${i.time}\n*Link* : ${i.url}\n*Keterangan* : ${i.ket}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+			    case 'liputan6': 
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/liputan6?apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Judul* : ${i.title}\n*Url* : ${i.url}\n*Keterangan* : ${i.ket}\n*Category* : ${i.category}\n*Time* : ${i.time}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+				case 'foxnews': 
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/foxnews?apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Judul* : ${i.title}\n*Url* : ${i.url}\n*Country* : ${i.country}\n*Content* : ${i.content}\n*Time* : ${i.time}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+				case 'nickff': 
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/nickepep?apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Nick* : ${i}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+				case 'newsinfo': 
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`http://lolhuman.herokuapp.com/api/newsinfo?apikey=WEMPYGANSS`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Source:* : ${i.source.name}\n*Author* : ${i.author}\n*Title* : ${i.title}\n*Description* : ${i.description}\n*Url* : ${i.url}\n*Published At* : ${i.publishedAt}\n*Content* : ${i.content}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+				case 'film': 	
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${body.slice(6)}&apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Title:* : ${i.title}\n*Url* : ${i.url}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+				case 'film2': 	
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					client.updatePresence(from, Presence.composing) 
+					data = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${body.slice(6)}&apikey=apivinz`, {method: 'get'})
+					teks = '=================\n'
+					for (let i of data.result) {
+						teks += `*Title:* : ${i.title}\n*Url* : ${i.url}\n=================\n`
+					}
+					reply(teks.trim())
+					await limitAdd(sender)
+					break
+					case 'searchfilm':
+               
+                pshh = `${body.slice(12)}`
+                  anu = await fetchJson(`https://api.zeks.xyz/api/film/2?q=${pshh}&apikey=apivinz`, {method: 'get'})
+                  puree = '======================\n'
+                  for (let plyll of anu.result){
+                  puree += `• *Judul:* ${plyll.title}\n• *Link:* ${plyll.url}\n=====================\n`
+                  }
+                  reply(puree.trim())
+                  break
+        case 'github': 
+					tels = body.slice(8) 
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://api.shizukaa.xyz/api/stalkgithub?apikey=itsmeiky633&user=${tels}`, {method: 'get'})
+					buffer7 = await getBuffer(anu.avatar_url)
+					if (anu.error) return reply(anu.error)
+					capt = `*HASIL*\n\n*id* : ${anu.id}\n*node_id* : ${anu.node_id}\n*gravatar_id* : ${anu.gravatar_id}\n*html_url* : ${anu.html_url}\n*type* : ${anu.type}\n*site_admin* : ${anu.site_admin}\n*name* : ${anu.name}\n*company* : ${anu.company}\n*blog* : ${anu.blog}\n*location* : ${anu.location}\n*email* : ${anu.email}\n*bio* : ${anu.bio}\n*twitter_username* : ${anu.twitter_username}\n*public_repos* : ${anu.public_repos}\n*public_gists* : ${anu.public_gists}\n*followers* : ${anu.followers}\n*following* : ${anu.following}\n*created_at* : ${anu.created_at}\n*updated_at* : ${anu.updated_at}`
+					dappa.sendMessage(from, buffer7, image, {quoted: mek, caption: capt})
+					await limitAdd(sender)
+					break
+        case 'infogempa':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/infogempa?apikey=BotWeA`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					buffer= await getBuffer(anu.map)
+					hasil = `*Potensi*\n${anu.potensi}\n*Lokasi*\n${anu.lokasi}\n*Magnitude*\n${anu.magnitude}\n*Koordinat*\n${anu.koordinat}\n*Kedalaman*\n${anu.kedalaman}\n*Waktu*\n${anu.waktu}\n*Map*\n${anu.map}`
+					dappa.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
+					await limitAdd(sender)
+					break
+		case 'infocuaca':
+					tels = body.slice(11)
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cuaca?wilayah=${tels}&apikey=BotWeA`, {method: 'get'})
+					if (anu.error) return reply(anu.error)
+					hasil = `*Tempat* : ${anu.result.tempat}\n*Cuaca* : ${anu.result.cuaca}\n*Angin* : ${anu.result.angin}\n*Suhu* : ${anu.result.suhu}\n*Kelembapan* : ${anu.result.kelembapan}`
+					dappa.sendMessage(from, hasil, text, {quoted: mek})
+					await limitAdd(sender)
+					break
+        case 'covidindo': 
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					data = await fetchJson(`https://videfikri.com/api/covidindo/`)
+					hasil = `Positif : ${data.result.positif}\nSembuh : ${data.result.sembuh}\nMeninggal : ${data.result.meninggal}\nDirawat : ${data.result.dalam_perawatan}`
+					reply(hasil)
+					await limitAdd(sender)
+					break	
+        case '1cak':
+				    try {
+					    // Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					    if (isLimit(sender)) return reply(ind.limitend(pusname))
+					    if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					    if (!isGroup) return reply(ind.groupo())
+					    if (!isNsfw) return reply(ind.nsfwoff())
+						res = await fetchJson(`https://st4rz.herokuapp.com/api/1cak`, {method: 'get'})
+						buffer = await getBuffer(res.result)
+						dappa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih Kak udah Jadi'})
+					} catch (e) {
+						console.log(`Error :`, color(e,'red'))
+						reply(ind.wrongf())
+					}
+					await limitAdd(sender)
+					break
+                case 'animequotes':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/quotesnime/random`, {method: 'get'})
+					reply(anu.data.quote)
+					await limitAdd(sender)
+					break	
+                case 'twichquotes':
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`https://docs-jojo.herokuapp.com/api/twichquote`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break	
+                case 'faktaunik': // Fixed By Yogiツ & FxSx
+					// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+					if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+					anu = await fetchJson(`http://lolhuman.herokuapp.com/api/random/faktaunik?apikey=WEMPYGANSS`, {method: 'get'})
+					reply(anu.result)
+					await limitAdd(sender)
+					break		
+        case 'calendermaker':
+				// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply('Url png/jpg mana kak')
+				ainez2 = body.slice(15)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/calendar?img=${ainez2}&apikey=apivinz`, {method: 'get'})
+				buffer = await getBuffer(anu.result)
+				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+        case 'tahta':
+				 				
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply(ind.wrongf())
+				bh = body.slice(9)
+				reply(ind.wait())
+				bh = await getBuffer(`https://api.zeks.xyz/api/hartatahta?text=${bh}&apikey=apivinz`)
+				dappa.sendMessage(from, bh, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+        case 'bplogo':
+				// Fix Case By Yogi/Hans⛔
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply(ind.wrongf())
+				vinz = body.slice(8)
+				reply(ind.wait())
+				anu = await fetchJson(`https://api.zeks.xyz/api/logobp?text=${vinz}&apikey=apivinz`)
+				buffer = await getBuffer(anu.result)
+				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+        case 'nulis2':
+				 				
+                 if (!isRegistered) return reply( ind.noregis())
+				if (isLimit(sender)) return reply(ind.limitend(pusname))
+				if (isBanned) return reply('Maaf kamu sudah terbenned!')
+				if (args.length < 1) return reply(ind.wrongf())
+				ct = body.slice(7)
+				ll1 = ct.split("/")[];
+                ll2 = ct.split("/")[1];
+                ll3 = ct.split("/")[2];
+                ll4 = ct.split("/")[3];
+				reply(ind.wait())
+				ct = await getBuffer(`https://api.zeks.xyz/api/magernulis?nama=${ll1}&kelas=${ll2}&text=${ll3}&tinta=${ll4}`)
+				dappa.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
+				await limitAdd(sender)
+				break
+        case 'wated':
+
+                                         
+
+                                        if (isBanned) return reply(ind.baned())
+				if (!isRegistered) return reply(ind.noregis())
+
+                                        var imgbb = require('imgbb-uploader')
+
+                                         if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
+
+                                         ger = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+
+                                         reply(ind.wait)
+
+                                         owgi = await client.downloadAndSaveMediaMessage(ger)
+
+                                         anu = await imgbb("727e7e43f6cda1dfb85d888522fd4ce1", owgi)
+
+                                        teks = `${anu.display_url}`
+
+                                        ranp = getRandom('.png')
+
+                                        rano = getRandom('.webp')
+
+                                        anu1 = `https://some-random-api.ml/canvas/wasted?avatar=${teks}`
+
+                                         exec(`wget ${anu1} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
+
+                                                fs.unlinkSync(ranp)
+
+                                                if (err) return reply(mess.error.stick)
+
+                                                nobg = fs.readFileSync(rano)
+
+                                                dappa.sendMessage(from, nobg, sticker, {quoted: mek})
+
+                                                fs.unlinkSync(rano)
+
+                                        })
+
+                                    
+
+                                             } else {
+
+                                                 reply('Gunakan foto!')
+
+                                          }
         case 'ytsearch':
                     if (args.length == 0) return reply(`Usage: ${prefix + command} query\nExample: ${prefix + command} Tahu Bacem`)
                     query = args.join(" ")
@@ -4690,7 +5164,7 @@ break
         if (isBanned) return reply('Maaf kamu sudah terbenned!')
         reply(ind.wait())
             query = args.join(" ")
-               get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytplay?apikey=${lolapi}&query=${query}`)
+               get_result = await fetchJson(`http://api.lolhuman.xyz/api/ytplay?apikey=Oz-san&query=${query}`)
                get_result = get_result.result
                get_info = get_result.info
                txt = `Title : ${get_info.title}\n`
@@ -4889,7 +5363,7 @@ break
                     buffer = await getBuffer(`https://api.zeks.xyz/api/${command}?text=${txt}&apikey=apivinz`)
                     dappa.sendMessage(from, buffer, image, {caption: 'Jangan Cuma make doang Follow instagram.com/noobz.sad.offc_', quoted: mek})
          break
-		case 'thunder':
+		case 'nangis':
                 if (!isRegistered) return reply( ind.noregis())
 				if (isLimit(sender)) return reply(ind.limitend(pusname))
 				if (args.length < 1) return reply(ind.wrongf())
