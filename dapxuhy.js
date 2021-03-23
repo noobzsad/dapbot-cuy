@@ -3327,16 +3327,6 @@ break
 					dappa.sendMessage(from, 'Pertanyaan : *'+rate+'*\n\nJawaban : '+ te+'%', text, { quoted: mek })
 					await limitAdd(sender)
 					break
-		case 'babi':
-		if (!isRegistered) return reply(ind.noregis())
-		if (isBanned) return reply(ind.baned())
-		if (isLimit(sender)) return reply(ind.limitend(pusname))
-		if (!isGroup) return reply(ind.groupo())
-                    const gmek = await dappa.getGroupMembersId(groupId)
-                    let gmik = gmek[Math.floor(Math.random() * gmek.length)]
-                    const mmkk = `YANG PALING BABI DISINI ADALAH @${gmik.replace(/@c.us/g, '')}`
-                    dappa.sendTextWithMentions(dari, mmkk, id)
-                    break
                     case 'nulis2':
                  if (!isRegistered) return reply(ind.noregis())
 		if (isBanned) return reply(ind.baned())
@@ -4742,15 +4732,6 @@ break
                     buffer = await getBuffer(`http://api.lolhuman.xyz/api/onecak?apikey=RamlanID`, {method: 'get'})
                     dappa.sendMessage(from, buffer, image, { quoted: mek })
                     break
-        case 'babi':
-			        // Fix Case By Yogi/Hans⛔
-                 if (!isRegistered) return reply( ind.noregis())
-					if (isLimit(sender)) return reply(ind.limitend(pusname))
-                 const gshizuka = await client.getGroupMembersId(groupId)
-                 let gmik = gshizuka[Math.floor(Math.random() * gshizuka.length)]
-                 const mmkk = `YANG PALING BABI DISINI ADALAH @${gmik.replace(/@c.us/g, '')}`
-                 client.sendTextWithMentions(dari, mmkk, id)
-                 break
 				case 'tebakgambar':
 			        // Fix Case By Yogi/Hans⛔
                  if (!isRegistered) return reply( ind.noregis())
