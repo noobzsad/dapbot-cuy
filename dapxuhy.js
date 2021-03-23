@@ -5059,22 +5059,6 @@ break
 				dappa.sendMessage(from, buffer, image, {caption: 'Nih kak udah jadi..', quoted: mek})
 				await limitAdd(sender)
 				break
-        case 'nulis2':
-				 				
-                 if (!isRegistered) return reply( ind.noregis())
-				if (isLimit(sender)) return reply(ind.limitend(pusname))
-				if (isBanned) return reply('Maaf kamu sudah terbenned!')
-				if (args.length < 1) return reply(ind.wrongf())
-				ct = body.slice(7)
-				ll1 = ct.split("/")[];
-                ll2 = ct.split("/")[1];
-                ll3 = ct.split("/")[2];
-                ll4 = ct.split("/")[3];
-				reply(ind.wait())
-				ct = await getBuffer(`https://api.zeks.xyz/api/magernulis?nama=${ll1}&kelas=${ll2}&text=${ll3}&tinta=${ll4}`)
-				dappa.sendMessage(from, ct, image, {caption: 'Nih kak udah jadi..', quoted: mek})
-				await limitAdd(sender)
-				break
         case 'wated':
 
                                          
